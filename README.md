@@ -1,2 +1,2 @@
 # Game
-Game for the Multiplayer Game Jam
+Game for the Multiplayer Game Jam.
