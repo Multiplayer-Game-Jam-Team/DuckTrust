@@ -9,6 +9,7 @@ public class InputManager : Singleton<InputManager>
     public bool IsMoving { get; private set; }
     public Vector2 MoveDirection { get; private set; }
 
+
     public void MovePressed(InputAction.CallbackContext context)
     {
         if (context.performed)
