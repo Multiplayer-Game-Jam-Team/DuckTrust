@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
-{
-    public enum PlayerNumber
-    {
+public class Player : MonoBehaviour {
+    public enum PlayerNumber {
         Player1,
         Player2
     }
 
+    public float RepulsiveForce { get => repulsiveForce; }
+
+    //------------------------------
     [Header("Player Number")]
     [SerializeField]
     private PlayerNumber playerNumber;
-
+    //------------------------------
     [Header("Movement Settings")]
     [SerializeField]
     private float moveSpeed = 10.0f;
