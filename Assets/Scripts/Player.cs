@@ -9,6 +9,10 @@ public class Player : MonoBehaviour
     private float speed = 10.0f;
     [SerializeField]
     private float rotationSpeed = 1.0f;
+    [SerializeField]
+    private GameObject platform;
+    [SerializeField]
+    private GameObject duckModel;
 
     private Rigidbody _rb;
 
@@ -16,7 +20,13 @@ public class Player : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
     }
 
-    private void Update() {
+    private void Update()
+    {
+        transform.up = platform.transform.up;
+        //duckModel.transform.forward = Vector3.RotateTowards(duckModel.transform.forward, _rb.velocity.normalized, rotationSpeed, 0.0f);
+    }
+
+    private void FixedUpdate() {
         Move();
     }
 
@@ -25,9 +35,7 @@ public class Player : MonoBehaviour
             Vector2 readDir = InputManager.Instance.MoveDirection;
             Vector3 direction = new Vector3(readDir.x,0,readDir.y);
 
-            Vector3 projectedVector = Vector3.ProjectOnPlane(direction,transform.up);
-            _rb.velocity = projectedVector.normalized * speed;
-            transform.right = Vector3.RotateTowards(transform.right, _rb.velocity.normalized, rotationSpeed, 0.0f);
+            _rb.MovePosition(_rb.position + direction.normalized * speed * Time.fixedDeltaTime);
         }
     }
 }
