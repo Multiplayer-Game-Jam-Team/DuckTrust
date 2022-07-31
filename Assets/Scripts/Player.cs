@@ -6,9 +6,11 @@ public class Player : MonoBehaviour
 {
     [Header("Movement Settings")]
     [SerializeField]
-    private float speed = 10.0f;
+    private float moveSpeed = 10.0f;
     [SerializeField]
     private float rotationSpeed = 1.0f;
+    
+    [Header("References")]
     [SerializeField]
     private GameObject platform;
     [SerializeField]
@@ -34,7 +36,7 @@ public class Player : MonoBehaviour
             Vector2 readDir = InputManager.Instance.MoveDirection;
             Vector3 direction = new Vector3(readDir.x,0,readDir.y);
 
-            _rb.MovePosition(_rb.position + direction.normalized * speed * Time.fixedDeltaTime);
+            _rb.MovePosition(_rb.position + direction.normalized * moveSpeed * Time.fixedDeltaTime);
         }
     }
 
