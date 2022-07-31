@@ -23,7 +23,9 @@ public class Player : MonoBehaviour
             Vector2 readDir = InputManager.Instance.MoveDirection;
             Vector3 direction = new Vector3(readDir.x,0,readDir.y);
 
-            _rb.velocity = direction * speed;
+            Vector3 aaa = Vector3.ProjectOnPlane(direction,transform.up);
+            _rb.velocity = aaa.normalized * speed;
+
         }
     }
 }
