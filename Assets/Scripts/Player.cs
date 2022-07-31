@@ -68,13 +68,11 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
-            Vector3 hitPoint = collision.contacts[0].point;
-            Vector3 direction = (transform.position - hitPoint).normalized;
+            Vector3 direction = (transform.position - collision.transform.position).normalized;
 
-            if(debug)
+            if (debug)
                 Debug.Log("Repulsive Force direction: " + direction+" for "+this.gameObject.name);
 
-            direction = Vector3.ProjectOnPlane(direction, platform.transform.up).normalized;
             Vector3 force = direction * repulsiveForce;
 
             _debugRepulsiveForce = force;
