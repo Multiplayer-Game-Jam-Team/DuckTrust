@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public enum PlayerNumber
+    {
+        Player1,
+        Player2
+    }
+
+    [Header("Player Number")]
+    [SerializeField]
+    private PlayerNumber playerNumber;
+
     [Header("Movement Settings")]
     [SerializeField]
     private float moveSpeed = 10.0f;
@@ -28,12 +38,19 @@ public class Player : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        Move();
+        if(playerNumber == PlayerNumber.Player1)
+        {
+            Move(InputManager.Instance.IsMovingPlayer1, InputManager.Instance.MoveDirectionPlayer1);
+        }
+        else if (playerNumber == PlayerNumber.Player2)
+        {
+            Move(InputManager.Instance.IsMovingPlayer2, InputManager.Instance.MoveDirectionPlayer2);
+        }
     }
 
-    private void Move() {
-        if (InputManager.Instance.IsMoving) {
-            Vector2 readDir = InputManager.Instance.MoveDirection;
+    private void Move(bool isMoving, Vector2 moveDirection) {
+        if (isMoving) {
+            Vector2 readDir = moveDirection;
             Vector3 direction = new Vector3(readDir.x,0,readDir.y);
 
             _rb.MovePosition(_rb.position + direction.normalized * moveSpeed * Time.fixedDeltaTime);
