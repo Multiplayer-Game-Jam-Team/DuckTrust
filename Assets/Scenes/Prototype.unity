@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 353266964}
   - component: {fileID: 353266963}
+  - component: {fileID: 353266965}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -153,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 61223233d9204ca4484490d6885be064, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -164,7 +165,73 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 353266965}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: MovePressed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b1e403b9-6f8a-4334-9da9-9e80ea54ce0c
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow,/SHANWAN
+      Android Gamepad/stick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 275cf06f-55f8-4111-a876-292accd8231a
+    m_ActionName: Player/Look[/Mouse/delta,/Pen/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6c4d6ab7-cf27-4988-87a0-f90e4db6009d
+    m_ActionName: Player/Fire[/Mouse/leftButton,/SHANWAN Android Gamepad/trigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f98e666f-b775-40b0-b6eb-426dd350dcd8
+    m_ActionName: UI/Navigate[/SHANWAN Android Gamepad/stick/up,/SHANWAN Android
+      Gamepad/stick/down,/SHANWAN Android Gamepad/stick/left,/SHANWAN Android Gamepad/stick/right,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 85235e2c-437a-460a-b3a0-d4c8b6d26c4c
+    m_ActionName: UI/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 222cf128-3bae-4282-b4b2-ba83a30f0779
+    m_ActionName: UI/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 712b243f-18ed-40fd-97d5-2b18f91c6737
+    m_ActionName: UI/Point[/Mouse/position,/Pen/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cc9c2624-5a3c-4394-9c6b-31e503ef10f7
+    m_ActionName: UI/Click[/Mouse/leftButton,/Pen/tip]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a8c5ff1b-5303-47e6-bf70-9e565baf91ae
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ee5eac81-76d0-4361-bb2b-6b10799a0cea
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2c9e8ed4-e8fd-4448-903e-e3925416f029
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 54519938-1025-492e-93f1-be51c9f97db4
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ce93d0f9-4bed-4fac-a758-060e7fcf4ef5
+    m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -184,6 +251,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &353266965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353266962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba785cdd943b958489bb6063799b34b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &379820989
 GameObject:
   m_ObjectHideFlags: 0
