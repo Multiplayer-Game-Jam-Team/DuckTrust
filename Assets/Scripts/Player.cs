@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField]
     private float speed = 10.0f;
+    [SerializeField]
+    private float rotationSpeed = 1.0f;
 
     private Rigidbody _rb;
 
@@ -23,9 +25,9 @@ public class Player : MonoBehaviour
             Vector2 readDir = InputManager.Instance.MoveDirection;
             Vector3 direction = new Vector3(readDir.x,0,readDir.y);
 
-            Vector3 aaa = Vector3.ProjectOnPlane(direction,transform.up);
-            _rb.velocity = aaa.normalized * speed;
-
+            Vector3 projectedVector = Vector3.ProjectOnPlane(direction,transform.up);
+            _rb.velocity = projectedVector.normalized * speed;
+            transform.right = Vector3.RotateTowards(transform.right, _rb.velocity.normalized, rotationSpeed, 0.0f);
         }
     }
 }

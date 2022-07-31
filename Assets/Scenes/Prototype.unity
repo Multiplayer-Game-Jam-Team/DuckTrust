@@ -150,7 +150,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 261022422}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.38, y: 0.42, z: 1.6}
+  m_LocalPosition: {x: -1.38, y: 0.716, z: 1.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1779925591}
@@ -168,8 +168,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2644986, y: 1.0268357, z: 0.93157876}
-  m_Center: {x: -0.13224953, y: 0.65919363, z: -0.0041534305}
+  m_Size: {x: 1.2644986, y: 1.1094007, z: 0.93157876}
+  m_Center: {x: -0.13224953, y: 0.18429112, z: -0.0041534305}
 --- !u!54 &261022425
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -184,7 +184,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &261022426
 MonoBehaviour:
@@ -198,7 +198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 114559132b4f68f49ba617bce53909b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 5
+  rotationSpeed: 0.05
 --- !u!1 &353266962
 GameObject:
   m_ObjectHideFlags: 0
