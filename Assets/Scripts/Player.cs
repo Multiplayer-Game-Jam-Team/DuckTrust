@@ -17,8 +17,11 @@ public class Player : MonoBehaviour
 
     private void Move() {
         if (InputManager.Instance.IsMoving) {
-            Vector2 direction = InputManager.Instance.MoveDirection;
-            myRigidbody.velocity = new Vector3(direction.x*speed,0,direction.y*speed);
+            Vector2 readDir = InputManager.Instance.MoveDirection;
+            Vector3 direction = new Vector3(readDir.x,0,readDir.y);
+
+            myRigidbody.velocity = direction * speed;
+            
         }
     }
 }
