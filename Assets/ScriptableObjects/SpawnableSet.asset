@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 100b059ed780d394488cd860895e74b1, type: 3}
   m_Name: SpawnableSet
   m_EditorClassIdentifier: 
-  spawnableObjects: []
+  spawnableObjects:
+  - {fileID: 2799549233887618682, guid: 05e413726d14f1c4ab60b259d4b0f006, type: 3}
+  - {fileID: 3038764565439376530, guid: a6305b3d7f746cd4bb48614b5a84bc2f, type: 3}
