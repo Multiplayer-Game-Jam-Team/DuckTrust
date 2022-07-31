@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 0
-  moveSpeed: 10
+  moveSpeed: 5
   rotationSpeed: 10
   platform: {fileID: 379820989}
   duckModel: {fileID: 1551710615}
@@ -551,8 +551,8 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!65 &379820991
-BoxCollider:
+--- !u!64 &379820991
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -561,9 +561,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &379820992
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -612,7 +613,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379820989}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &379820994
 Transform:
   m_ObjectHideFlags: 0
@@ -622,7 +623,7 @@ Transform:
   m_GameObject: {fileID: 379820989}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 11.789896, y: 0.29663, z: 10.607887}
+  m_LocalScale: {x: 11.789896, y: 0.18, z: 10.607887}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -675,7 +676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 1
-  moveSpeed: 10
+  moveSpeed: 5
   rotationSpeed: 10
   platform: {fileID: 379820989}
   duckModel: {fileID: 210471725}
