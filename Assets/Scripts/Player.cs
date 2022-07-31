@@ -8,8 +8,6 @@ public class Player : MonoBehaviour {
         Player2
     }
 
-    public float RepulsiveForce { get => repulsiveForce; }
-
     //------------------------------
     [Header("Player Number")]
     [SerializeField]
