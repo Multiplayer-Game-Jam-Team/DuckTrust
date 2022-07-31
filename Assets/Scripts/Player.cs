@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] float speed;
-    Rigidbody myRigidbody;
+    [Header("Movement Settings")]
+    [SerializeField]
+    private float speed = 10.0f;
+
+    private Rigidbody _rb;
 
     private void Awake() {
-        myRigidbody = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
     }
 
     private void Update() {
@@ -20,8 +23,7 @@ public class Player : MonoBehaviour
             Vector2 readDir = InputManager.Instance.MoveDirection;
             Vector3 direction = new Vector3(readDir.x,0,readDir.y);
 
-            myRigidbody.velocity = direction * speed;
-            
+            _rb.velocity = direction * speed;
         }
     }
 }
