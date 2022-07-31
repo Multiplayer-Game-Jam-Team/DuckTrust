@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     private void Move() {
         if (InputManager.Instance.IsMoving) {
             Vector2 direction = InputManager.Instance.MoveDirection;
-            myRigidbody.velocity = direction.normalized * speed;
+            myRigidbody.velocity = new Vector3(direction.x*speed,0,direction.y*speed);
         }
     }
 }
