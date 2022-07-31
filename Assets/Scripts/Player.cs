@@ -22,8 +22,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        transform.up = platform.transform.up;
-        //duckModel.transform.forward = Vector3.RotateTowards(duckModel.transform.forward, _rb.velocity.normalized, rotationSpeed, 0.0f);
+        //duckModel.transform.right = Vector3.RotateTowards(duckModel.transform.right, _rb.velocity.normalized, rotationSpeed, 0.0f);
     }
 
     private void FixedUpdate() {
@@ -36,6 +35,12 @@ public class Player : MonoBehaviour
             Vector3 direction = new Vector3(readDir.x,0,readDir.y);
 
             _rb.MovePosition(_rb.position + direction.normalized * speed * Time.fixedDeltaTime);
+        }
+    }
+
+    private void OnCollisionStay(Collision other) {
+        if (other.gameObject.tag == "Platform") {
+            transform.up = other.transform.up;
         }
     }
 }
