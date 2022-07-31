@@ -38,11 +38,6 @@ public class Player : MonoBehaviour {
         _rb = GetComponent<Rigidbody>();
     }
 
-    private void Update()
-    {
-        //duckModel.transform.right = Vector3.RotateTowards(duckModel.transform.right, _rb.velocity.normalized, rotationSpeed, 0.0f);
-    }
-
     private void FixedUpdate() {
         if(playerNumber == PlayerNumber.Player1)
         {
@@ -54,12 +49,19 @@ public class Player : MonoBehaviour {
         }
     }
 
+    Vector3 debugVector;
     private void Move(bool isMoving, Vector2 moveDirection) {
         if (isMoving) {
-            Vector2 readDir = moveDirection;
-            Vector3 direction = new Vector3(readDir.x,0,readDir.y);
+            Vector2 inputDirection = moveDirection;
+            Vector3 WorldDirection = new Vector3(inputDirection.x,0, inputDirection.y);
+            Vector3 DuckPlaneDirection = Vector3.ProjectOnPlane(WorldDirection, transform.up);
+            DuckPlaneDirection += transform.position;
+            debugVector = DuckPlaneDirection;
 
-            _rb.MovePosition(_rb.position + direction.normalized * moveSpeed * Time.fixedDeltaTime);
+            _rb.MovePosition(_rb.position + WorldDirection.normalized * moveSpeed * Time.fixedDeltaTime);
+            //_rb.velocity = DuckPlaneDirection.normalized * moveSpeed;
+
+            //transform.right = Vector3.RotateTowards(transform.right, DuckPlaneDirection, rotationSpeed, 0.0f);
         }
     }
 
@@ -67,7 +69,7 @@ public class Player : MonoBehaviour {
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
-            Vector3 direction = (transform.position - collision.transform.position).normalized;
+            Vector3 direction = (transform.position - collision.gameObject.transform.position).normalized;
 
             if (debug)
                 Debug.Log("Repulsive Force direction: " + direction+" for "+this.gameObject.name);
@@ -91,6 +93,8 @@ public class Player : MonoBehaviour {
         {
             Gizmos.color = Color.red;
             Gizmos.DrawLine(transform.position, _debugRepulsiveForce);
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(transform.position, debugVector);
         }
     }
 }
