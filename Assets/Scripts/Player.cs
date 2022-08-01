@@ -7,8 +7,9 @@ public class Player : MonoBehaviour {
         Player1,
         Player2
     }
+    private static int _numPlayers = 0;
 
-    public PlayerNumber PlayerType { get => playerNumber; }
+    public PlayerNumber PlayerType { get => playerNumber; set { playerNumber = value; } }
 
     //------------------------------
     [Header("Player Number")]
@@ -35,9 +36,7 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private PhysicMaterial stonePhysicMaterial;
 
-    [Header("References")]
-    [SerializeField]
-    private GameObject platform;
+    private GameObject _platform;
     [SerializeField]
     private GameObject duckModel;
 
@@ -61,12 +60,17 @@ public class Player : MonoBehaviour {
     {
         _rb = GetComponent<Rigidbody>();
     }
-
+     
     private void Start()
     {
+        _platform = GameController.Instance.Lilly;
         _previousDuckMass = _rb.mass;
         _previousMaterial = duckModel.GetComponent<MeshRenderer>().material;
         _previousPhysicMaterial = gameObject.GetComponent<BoxCollider>().material;
+
+        Debug.Log("my number is: "+playerNumber.ToString());
+
+        GameController.Instance.RegisterPlayer(this);
     }
 
     private void Update()
@@ -149,7 +153,7 @@ public class Player : MonoBehaviour {
         _rb.MovePosition(_rb.position + WorldDirection.normalized * moveSpeed * Time.fixedDeltaTime);
 
         Vector3 upToUse;
-        if (_isTouchingPlatform) upToUse = platform.transform.up;
+        if (_isTouchingPlatform) upToUse = _platform.transform.up;
         else upToUse = transform.up;
 
         Quaternion toRot = Quaternion.LookRotation(transform.position - DuckPlaneDirection,upToUse);
@@ -169,7 +173,7 @@ public class Player : MonoBehaviour {
         gameObject.GetComponent<BoxCollider>().material = stonePhysicMaterial;
 
         Vector3 upToUse;
-        if (_isTouchingPlatform) upToUse = platform.transform.up;
+        if (_isTouchingPlatform) upToUse = _platform.transform.up;
         else upToUse = transform.up;
 
         transform.rotation = Quaternion.LookRotation(transform.forward, upToUse);
@@ -229,4 +233,5 @@ public class Player : MonoBehaviour {
         _canPressStone = true;
         Debug.Log("STONE CD FINISHED");
     }
+
 }

@@ -6,34 +6,43 @@ public class GameController : Singleton<GameController>
 {
 
     public float  YToDestroy { get => ObjectsOutDetector.transform.position.y; }
+    public GameObject Lilly { get => lilly; }
 
     [Header("References")]
     [SerializeField]
     private GameObject ObjectsOutDetector;
     [SerializeField]
     private GameObject PlayerPrefab;
+    [SerializeField]
+    private GameObject lilly;
 
     private int _playersAlive = 2;
-    private Vector3?[] _playersPositions;
+    private Vector3?[] _playersStartingPositions;
     private Player[] _players; 
 
     protected override void Awake()
     {
         base.Awake();
-        _playersPositions = new Vector3?[2] {null,null};
+        _playersStartingPositions = new Vector3?[2] {null,null};
         _players = new Player[2];
     }
 
-    public void RegistrerPlayerPos(Vector3 pos)
+    public void RegisterPlayer(Player player)
     {
-        if (_playersPositions[0] == null)
+
+        if(player.PlayerType == Player.PlayerNumber.Player1)
         {
-            _playersPositions[0] = pos;
+            _players[0] = player;
+            if (_playersStartingPositions[0] == null)
+                _playersStartingPositions[0] = player.transform.position;
         }
-        else if (_playersPositions[1] == null)
+        else if(player.PlayerType == Player.PlayerNumber.Player2)
         {
-            _playersPositions[1] = pos;
+            _players[1] = player;
+            if (_playersStartingPositions[1] == null)
+                _playersStartingPositions[1] = player.transform.position;
         }
+
     }
 
     public void PlayerOut()
@@ -47,18 +56,19 @@ public class GameController : Singleton<GameController>
         }
     }
 
-    public void RegisterPlayer()
-    {
-
-    }
-
     private void GameOver()
     {
         for(int i = 0; i < _players.Length; i++)
         {
             Destroy(_players[i].gameObject);
-            _players[i] = Instantiate(PlayerPrefab, (Vector3)_playersPositions[0], Quaternion.identity).GetComponent<Player>(); ;
+            _players[i] = Instantiate(PlayerPrefab, (Vector3)_playersStartingPositions[i], Quaternion.identity).GetComponent<Player>();
+            if(i == 0)
+                _players[i].PlayerType = Player.PlayerNumber.Player1;
+            else if (i==1)
+                _players[i].PlayerType = Player.PlayerNumber.Player2;
+            Lilly.transform.rotation = Quaternion.identity;
         }
+        _playersAlive = 2;
     }
 
 }
