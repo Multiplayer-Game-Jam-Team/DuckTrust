@@ -1,39 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : Singleton<GameController>
 {
 
-    public float  YToDestroy { get => ObjectsOutDetector.transform.position.y; }
+    public float  YToDestroy { get => objectsOutDetector.transform.position.y; }
+    public GameObject Lilly { get => lilly; }
 
     [Header("References")]
     [SerializeField]
-    private GameObject ObjectsOutDetector;
+    private GameObject objectsOutDetector;
     [SerializeField]
-    private GameObject PlayerPrefab;
+    private GameObject lilly;
+    [SerializeField]
 
     private int _playersAlive = 2;
-    private Vector3?[] _playersPositions;
     private Player[] _players; 
 
     protected override void Awake()
     {
         base.Awake();
-        _playersPositions = new Vector3?[2] {null,null};
         _players = new Player[2];
     }
 
-    public void RegistrerPlayerPos(Vector3 pos)
+    public void RegisterPlayer(Player player)
     {
-        if (_playersPositions[0] == null)
-        {
-            _playersPositions[0] = pos;
-        }
-        else if (_playersPositions[1] == null)
-        {
-            _playersPositions[1] = pos;
-        }
+
+        if(player.PlayerType == Player.PlayerNumber.Player1)
+            _players[0] = player;
+        else if(player.PlayerType == Player.PlayerNumber.Player2)
+            _players[1] = player;
     }
 
     public void PlayerOut()
@@ -47,18 +45,8 @@ public class GameController : Singleton<GameController>
         }
     }
 
-    public void RegisterPlayer()
-    {
-
-    }
-
     private void GameOver()
     {
-        for(int i = 0; i < _players.Length; i++)
-        {
-            Destroy(_players[i].gameObject);
-            _players[i] = Instantiate(PlayerPrefab, (Vector3)_playersPositions[0], Quaternion.identity).GetComponent<Player>(); ;
-        }
+        SceneManager.LoadScene(0);
     }
-
 }
