@@ -15,13 +15,15 @@ public class SpawnableObject : MonoBehaviour
     //------------------------
     private Rigidbody _rb;
 
+    private const float Y_TO_DESTROY = -10.0f;
+
     private void Awake() {
         _rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
-        if (transform.position.y < -10.0f)
+        if (transform.position.y < Y_TO_DESTROY)
             Destroy(gameObject);
     }
 
