@@ -35,11 +35,13 @@ public class Player : MonoBehaviour {
     private Vector3 _debugRepulsiveForce;
     private bool _isTouchingPlatform;
 
-    private void Awake() {
+    private void Awake() 
+    {
         _rb = GetComponent<Rigidbody>();
     }
 
-    private void FixedUpdate() {
+    private void FixedUpdate() 
+    {
         if (playerNumber == PlayerNumber.Player1)
         {
             Move(InputManager.Instance.IsMovingPlayer1, InputManager.Instance.MoveDirectionPlayer1);
@@ -50,22 +52,24 @@ public class Player : MonoBehaviour {
         }
     }
 
-    private void Move(bool isMoving, Vector2 moveDirection) {
-        if (isMoving) {
-            Vector2 inputDirection = moveDirection;
-            Vector3 WorldDirection = new Vector3(inputDirection.x,0, inputDirection.y);
-            Vector3 DuckPlaneDirection = Vector3.ProjectOnPlane(WorldDirection, transform.up);
-            DuckPlaneDirection += transform.position;
+    private void Move(bool isMoving, Vector2 moveDirection) 
+    {
+        if (!isMoving)
+            return;
 
-            _rb.MovePosition(_rb.position + WorldDirection.normalized * moveSpeed * Time.fixedDeltaTime);
+        Vector2 inputDirection = moveDirection;
+        Vector3 WorldDirection = new Vector3(inputDirection.x,0, inputDirection.y);
+        Vector3 DuckPlaneDirection = Vector3.ProjectOnPlane(WorldDirection, transform.up);
+        DuckPlaneDirection += transform.position;
 
-            Vector3 upToUse;
-            if (_isTouchingPlatform) upToUse = platform.transform.up;
-            else upToUse = transform.up;
+        _rb.MovePosition(_rb.position + WorldDirection.normalized * moveSpeed * Time.fixedDeltaTime);
 
-            Quaternion toRot = Quaternion.LookRotation(transform.position - DuckPlaneDirection,upToUse);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRot, rotationSpeed * Time.fixedDeltaTime);
-        }
+        Vector3 upToUse;
+        if (_isTouchingPlatform) upToUse = platform.transform.up;
+        else upToUse = transform.up;
+
+        Quaternion toRot = Quaternion.LookRotation(transform.position - DuckPlaneDirection,upToUse);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, toRot, rotationSpeed * Time.fixedDeltaTime);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -84,18 +88,28 @@ public class Player : MonoBehaviour {
         }
     }
 
-    private void OnCollisionStay(Collision collision) {
-        if (collision.gameObject.tag.Equals("Platform")) {
+    private void OnCollisionStay(Collision collision) 
+    {
+        if (collision.gameObject.tag.Equals("Platform")) 
             _isTouchingPlatform = true;
+        
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag.Equals("Platform"))
+        {
+            _isTouchingPlatform = false;
+            GetComponentInChildren<PlayerInfoPanel>().SetActivePlayerInfo(false);
         }
     }
 
     private void OnDrawGizmos()
     {
-        if (debug)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawLine(transform.position, _debugRepulsiveForce);
-        }
+        if (!debug)
+            return;
+        
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, _debugRepulsiveForce);
     }
 }
