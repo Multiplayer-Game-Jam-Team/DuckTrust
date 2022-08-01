@@ -32,6 +32,8 @@ public class Player : MonoBehaviour {
     private float stoneMass = 1.5f;
     [SerializeField]
     private Material stoneMaterial;
+    [SerializeField]
+    private PhysicMaterial stonePhysicMaterial;
 
     [Header("References")]
     [SerializeField]
@@ -53,6 +55,7 @@ public class Player : MonoBehaviour {
     private float _stoneTimer = 0.0f;
     private float _previousDuckMass = 0.0f;
     private Material _previousMaterial;
+    private PhysicMaterial _previousPhysicMaterial;
 
     private void Awake() 
     {
@@ -63,6 +66,7 @@ public class Player : MonoBehaviour {
     {
         _previousDuckMass = _rb.mass;
         _previousMaterial = duckModel.GetComponent<MeshRenderer>().material;
+        _previousPhysicMaterial = gameObject.GetComponent<BoxCollider>().material;
     }
 
     private void Update()
@@ -88,6 +92,7 @@ public class Player : MonoBehaviour {
                     _canMove = true;
                     _rb.mass = _previousDuckMass;
                     duckModel.GetComponent<MeshRenderer>().material = _previousMaterial;
+                    gameObject.GetComponent<BoxCollider>().material = _previousPhysicMaterial;
                     StartCoroutine(COCooldownStone(stoneCooldown));
                 }
             }
@@ -108,6 +113,7 @@ public class Player : MonoBehaviour {
                     _canMove = true;
                     _rb.mass = _previousDuckMass;
                     duckModel.GetComponent<MeshRenderer>().material = _previousMaterial;
+                    gameObject.GetComponent<BoxCollider>().material = _previousPhysicMaterial;
                     StartCoroutine(COCooldownStone(stoneCooldown));
                 }
             }
@@ -124,6 +130,8 @@ public class Player : MonoBehaviour {
         {
             Move(InputManager.Instance.IsMovingPlayer2, InputManager.Instance.MoveDirectionPlayer2);
         }
+
+        
     }
 
     private void Move(bool isMoving, Vector2 moveDirection) 
@@ -156,6 +164,13 @@ public class Player : MonoBehaviour {
         _canMove = false;
         _rb.mass = stoneMass;
         duckModel.GetComponent<MeshRenderer>().material = stoneMaterial;
+        gameObject.GetComponent<BoxCollider>().material = stonePhysicMaterial;
+
+        Vector3 upToUse;
+        if (_isTouchingPlatform) upToUse = platform.transform.up;
+        else upToUse = transform.up;
+
+        transform.rotation = Quaternion.LookRotation(transform.forward, upToUse);
 
         _stoneTimer += Time.deltaTime;
         if (_stoneTimer >= stoneTime)
@@ -165,6 +180,7 @@ public class Player : MonoBehaviour {
             _canPressStone = false;
             _canMove = true;
             duckModel.GetComponent<MeshRenderer>().material = _previousMaterial;
+            gameObject.GetComponent<BoxCollider>().material = _previousPhysicMaterial;
             _rb.mass = _previousDuckMass;
             StartCoroutine(COCooldownStone(stoneCooldown));
             return;

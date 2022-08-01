@@ -307,6 +307,7 @@ MonoBehaviour:
   stoneCooldown: 20
   stoneMass: 1.5
   stoneMaterial: {fileID: 2100000, guid: 0c0b2123789a317409bd6aa39008f5c2, type: 2}
+  stonePhysicMaterial: {fileID: 13400000, guid: 226f547ed9515514aa57dc37bb2251b6, type: 2}
   platform: {fileID: 379820989}
   duckModel: {fileID: 1105960045}
   debug: 1
@@ -849,6 +850,7 @@ MonoBehaviour:
   stoneCooldown: 20
   stoneMass: 1.5
   stoneMaterial: {fileID: 2100000, guid: 0c0b2123789a317409bd6aa39008f5c2, type: 2}
+  stonePhysicMaterial: {fileID: 13400000, guid: 226f547ed9515514aa57dc37bb2251b6, type: 2}
   platform: {fileID: 379820989}
   duckModel: {fileID: 1245351769}
   debug: 1
