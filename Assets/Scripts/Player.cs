@@ -39,7 +39,7 @@ public class Player : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        if(playerNumber == PlayerNumber.Player1)
+        if (playerNumber == PlayerNumber.Player1)
         {
             Move(InputManager.Instance.IsMovingPlayer1, InputManager.Instance.MoveDirectionPlayer1);
         }
@@ -47,6 +47,7 @@ public class Player : MonoBehaviour {
         {
             Move(InputManager.Instance.IsMovingPlayer2, InputManager.Instance.MoveDirectionPlayer2);
         }
+        
     }
 
     Vector3 debugVector;
@@ -59,9 +60,8 @@ public class Player : MonoBehaviour {
             debugVector = DuckPlaneDirection;
 
             _rb.MovePosition(_rb.position + WorldDirection.normalized * moveSpeed * Time.fixedDeltaTime);
-            //_rb.velocity = DuckPlaneDirection.normalized * moveSpeed;
 
-            //transform.right = Vector3.RotateTowards(transform.right, DuckPlaneDirection, rotationSpeed, 0.0f);
+            transform.rotation = Quaternion.LookRotation(transform.position - DuckPlaneDirection,platform.transform.up);
         }
     }
 
@@ -81,11 +81,11 @@ public class Player : MonoBehaviour {
         }
     }
 
-    private void OnCollisionStay(Collision collision) {
-        if (collision.gameObject.tag.Equals("Platform")) {
-            transform.up = collision.transform.up;
-        }
-    }
+    //private void OnCollisionStay(Collision collision) {
+    //    if (collision.gameObject.tag.Equals("Platform")) {
+    //        transform.up = collision.transform.up;
+    //    }
+    //}
 
     private void OnDrawGizmos()
     {
