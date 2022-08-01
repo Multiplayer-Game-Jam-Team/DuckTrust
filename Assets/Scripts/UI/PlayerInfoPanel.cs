@@ -23,7 +23,8 @@ public class PlayerInfoPanel : MonoBehaviour
     public void SetActivePlayerInfo(bool active)
     {
         IsActive = active;
-        this.gameObject.SetActive(active);
+        playerText.enabled = active;
+        triangleIcon.enabled = active;
     }
 
     private void Start()
