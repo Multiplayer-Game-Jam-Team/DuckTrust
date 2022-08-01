@@ -93,6 +93,7 @@ public class Player : MonoBehaviour {
                     _rb.mass = _previousDuckMass;
                     duckModel.GetComponent<MeshRenderer>().material = _previousMaterial;
                     gameObject.GetComponent<BoxCollider>().material = _previousPhysicMaterial;
+                    _rb.freezeRotation = false;
                     StartCoroutine(COCooldownStone(stoneCooldown));
                 }
             }
@@ -114,6 +115,7 @@ public class Player : MonoBehaviour {
                     _rb.mass = _previousDuckMass;
                     duckModel.GetComponent<MeshRenderer>().material = _previousMaterial;
                     gameObject.GetComponent<BoxCollider>().material = _previousPhysicMaterial;
+                    _rb.freezeRotation = false;
                     StartCoroutine(COCooldownStone(stoneCooldown));
                 }
             }
@@ -172,6 +174,8 @@ public class Player : MonoBehaviour {
 
         transform.rotation = Quaternion.LookRotation(transform.forward, upToUse);
 
+        _rb.freezeRotation = true;
+
         _stoneTimer += Time.deltaTime;
         if (_stoneTimer >= stoneTime)
         {
@@ -183,6 +187,7 @@ public class Player : MonoBehaviour {
             gameObject.GetComponent<BoxCollider>().material = _previousPhysicMaterial;
             _rb.mass = _previousDuckMass;
             StartCoroutine(COCooldownStone(stoneCooldown));
+            _rb.freezeRotation = false;
             return;
         }
     }
