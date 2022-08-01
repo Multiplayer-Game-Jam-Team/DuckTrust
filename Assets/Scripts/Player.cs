@@ -7,9 +7,8 @@ public class Player : MonoBehaviour {
         Player1,
         Player2
     }
-    private static int _numPlayers = 0;
 
-    public PlayerNumber PlayerType { get => playerNumber; set { playerNumber = value; } }
+    public PlayerNumber PlayerType { get => playerNumber; }
 
     //------------------------------
     [Header("Player Number")]
