@@ -24,8 +24,6 @@ public class Player : MonoBehaviour {
     [Header("References")]
     [SerializeField]
     private GameObject platform;
-    [SerializeField]
-    private GameObject duckModel;
 
     [Header("Debug")]
     [SerializeField]
@@ -33,6 +31,7 @@ public class Player : MonoBehaviour {
 
     private Rigidbody _rb;
     private Vector3 _debugRepulsiveForce;
+    private bool _isTouchingPlatform;
 
     private void Awake() {
         _rb = GetComponent<Rigidbody>();
@@ -47,17 +46,14 @@ public class Player : MonoBehaviour {
         {
             Move(InputManager.Instance.IsMovingPlayer2, InputManager.Instance.MoveDirectionPlayer2);
         }
-        
     }
 
-    Vector3 debugVector;
     private void Move(bool isMoving, Vector2 moveDirection) {
         if (isMoving) {
             Vector2 inputDirection = moveDirection;
             Vector3 WorldDirection = new Vector3(inputDirection.x,0, inputDirection.y);
             Vector3 DuckPlaneDirection = Vector3.ProjectOnPlane(WorldDirection, transform.up);
             DuckPlaneDirection += transform.position;
-            debugVector = DuckPlaneDirection;
 
             _rb.MovePosition(_rb.position + WorldDirection.normalized * moveSpeed * Time.fixedDeltaTime);
 
@@ -84,7 +80,6 @@ public class Player : MonoBehaviour {
         }
     }
 
-    bool _isTouchingPlatform;
     private void OnCollisionStay(Collision collision) {
         if (collision.gameObject.tag.Equals("Platform")) {
             _isTouchingPlatform = true;
@@ -97,8 +92,6 @@ public class Player : MonoBehaviour {
         {
             Gizmos.color = Color.red;
             Gizmos.DrawLine(transform.position, _debugRepulsiveForce);
-            Gizmos.color = Color.green;
-            Gizmos.DrawLine(transform.position, debugVector);
         }
     }
 }
