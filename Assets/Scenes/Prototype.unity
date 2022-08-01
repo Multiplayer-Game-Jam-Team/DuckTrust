@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -218,11 +218,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8913da24ce7fa9246a55aecbd77cd2d2, type: 3}
---- !u!1 &210471725 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8913da24ce7fa9246a55aecbd77cd2d2, type: 3}
-  m_PrefabInstance: {fileID: 210471724}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &210471726 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8913da24ce7fa9246a55aecbd77cd2d2, type: 3}
@@ -305,10 +300,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNumber: 0
   moveSpeed: 5
-  rotationSpeed: 100000
+  rotationSpeed: 200
   repulsiveForce: 5
   platform: {fileID: 379820989}
-  duckModel: {fileID: 1551710615}
   debug: 1
 --- !u!1 &353266962
 GameObject:
@@ -709,10 +703,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNumber: 1
   moveSpeed: 5
-  rotationSpeed: 0.15
+  rotationSpeed: 200
   repulsiveForce: 5
   platform: {fileID: 379820989}
-  duckModel: {fileID: 210471725}
   debug: 1
 --- !u!65 &626238443
 BoxCollider:
@@ -1028,11 +1021,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1551710615 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8913da24ce7fa9246a55aecbd77cd2d2, type: 3}
-  m_PrefabInstance: {fileID: 1858040942}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1582567186
 GameObject:
   m_ObjectHideFlags: 0

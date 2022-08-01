@@ -60,7 +60,9 @@ public class Player : MonoBehaviour {
             Vector3 upToUse;
             if (_isTouchingPlatform) upToUse = platform.transform.up;
             else upToUse = transform.up;
-            transform.rotation = Quaternion.LookRotation(transform.position - DuckPlaneDirection,upToUse);
+
+            Quaternion toRot = Quaternion.LookRotation(transform.position - DuckPlaneDirection,upToUse);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRot, rotationSpeed * Time.fixedDeltaTime);
         }
     }
 
