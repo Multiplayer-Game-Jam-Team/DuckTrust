@@ -8,6 +8,8 @@ public class Player : MonoBehaviour {
         Player2
     }
 
+    public PlayerNumber PlayerType { get => playerNumber; }
+
     //------------------------------
     [Header("Player Number")]
     [SerializeField]
