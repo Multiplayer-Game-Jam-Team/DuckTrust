@@ -35,7 +35,7 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private PhysicMaterial stonePhysicMaterial;
 
-    private GameObject _platform;
+    [Header("References")]
     [SerializeField]
     private GameObject duckModel;
 
@@ -43,6 +43,7 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private bool debug;
 
+    private GameObject _platform;
     private Rigidbody _rb;
     private Vector3 _debugRepulsiveForce;
     private bool _isTouchingPlatform;
@@ -62,7 +63,7 @@ public class Player : MonoBehaviour {
      
     private void Start()
     {
-        _platform = GameController.Instance.Lilly;
+        _platform = GameController.Instance.Lily;
         _previousDuckMass = _rb.mass;
         _previousMaterial = duckModel.GetComponent<MeshRenderer>().material;
         _previousPhysicMaterial = gameObject.GetComponent<BoxCollider>().material;
@@ -96,7 +97,7 @@ public class Player : MonoBehaviour {
                     _rb.mass = _previousDuckMass;
                     duckModel.GetComponent<MeshRenderer>().material = _previousMaterial;
                     gameObject.GetComponent<BoxCollider>().material = _previousPhysicMaterial;
-                    _rb.freezeRotation = false;
+                    
                     StartCoroutine(COCooldownStone(stoneCooldown));
                 }
             }
@@ -118,7 +119,7 @@ public class Player : MonoBehaviour {
                     _rb.mass = _previousDuckMass;
                     duckModel.GetComponent<MeshRenderer>().material = _previousMaterial;
                     gameObject.GetComponent<BoxCollider>().material = _previousPhysicMaterial;
-                    _rb.freezeRotation = false;
+                    
                     StartCoroutine(COCooldownStone(stoneCooldown));
                 }
             }
@@ -171,13 +172,7 @@ public class Player : MonoBehaviour {
         duckModel.GetComponent<MeshRenderer>().material = stoneMaterial;
         gameObject.GetComponent<BoxCollider>().material = stonePhysicMaterial;
 
-        Vector3 upToUse;
-        if (_isTouchingPlatform) upToUse = _platform.transform.up;
-        else upToUse = transform.up;
-
-        transform.rotation = Quaternion.LookRotation(transform.forward, upToUse);
-
-        _rb.freezeRotation = true;
+        transform.up = _platform.transform.up;
 
         _stoneTimer += Time.deltaTime;
         if (_stoneTimer >= stoneTime)

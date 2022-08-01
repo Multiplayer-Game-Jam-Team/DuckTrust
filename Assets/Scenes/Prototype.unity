@@ -199,8 +199,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2644986, y: 1.1094007, z: 0.93157876}
-  m_Center: {x: -0.13224953, y: 0.18429112, z: -0.0041534305}
+  m_Size: {x: 0.98790455, y: 1.1094007, z: 1.2465118}
+  m_Center: {x: 0.0060474873, y: 0.18429112, z: 0.15331312}
 --- !u!54 &261022425
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -928,7 +928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsOutDetector: {fileID: 1839774121}
-  lilly: {fileID: 379820989}
+  lily: {fileID: 379820989}
   _playersAlive: 2
 --- !u!4 &660405470
 Transform:
@@ -1967,8 +1967,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2644986, y: 1.1094007, z: 0.93157876}
-  m_Center: {x: -0.13224953, y: 0.18429112, z: -0.0041534305}
+  m_Size: {x: 0.9906807, y: 1.1094007, z: 1.2503874}
+  m_Center: {x: 0.0046594143, y: 0.18429112, z: 0.1552509}
 --- !u!222 &7141572898687782043
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2119,7 +2119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerText: {fileID: 7141572898687782044}
   triangleIcon: {fileID: 7141572899776622267}
-  playerColor: {r: 0.1764706, g: 1, b: 0.1764706, a: 1}
+  playerColor: {r: 1, g: 0.17647058, b: 0.19925992, a: 1}
 --- !u!224 &7141572898692590950
 RectTransform:
   m_ObjectHideFlags: 0

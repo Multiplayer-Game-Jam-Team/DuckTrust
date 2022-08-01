@@ -7,13 +7,13 @@ public class GameController : Singleton<GameController>
 {
 
     public float  YToDestroy { get => objectsOutDetector.transform.position.y; }
-    public GameObject Lilly { get => lilly; }
+    public GameObject Lily { get => lily; }
 
     [Header("References")]
     [SerializeField]
     private GameObject objectsOutDetector;
     [SerializeField]
-    private GameObject lilly;
+    private GameObject lily;
     [SerializeField]
 
     private int _playersAlive = 2;
