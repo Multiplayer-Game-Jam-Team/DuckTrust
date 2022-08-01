@@ -19,6 +19,12 @@ public class SpawnableObject : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
     }
 
+    private void Update()
+    {
+        if (transform.position.y < -10.0f)
+            Destroy(gameObject);
+    }
+
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag == "Player") {
             Vector3 direction = (transform.position - other.transform.position).normalized;
