@@ -34,10 +34,20 @@ public class Player : MonoBehaviour {
     private Rigidbody _rb;
     private Vector3 _debugRepulsiveForce;
     private bool _isTouchingPlatform;
+    private bool _isAlive = true;
 
     private void Awake() 
     {
         _rb = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        if(transform.position.y < GameController.Instance.YToDestroy && _isAlive)
+        {
+            _isAlive = false;
+            GameController.Instance.PlayerOut();
+        }
     }
 
     private void FixedUpdate() 

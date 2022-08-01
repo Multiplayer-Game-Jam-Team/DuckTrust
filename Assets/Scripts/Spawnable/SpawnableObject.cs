@@ -23,7 +23,7 @@ public class SpawnableObject : MonoBehaviour
 
     private void Update()
     {
-        if (transform.position.y < Y_TO_DESTROY)
+        if (transform.position.y < GameController.Instance.YToDestroy)
             Destroy(gameObject);
     }
 

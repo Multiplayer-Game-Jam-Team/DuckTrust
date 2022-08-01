@@ -9,7 +9,7 @@ public class SpawnerCustomEditor : Editor
     private void OnSceneGUI()
     {
         Spawner spawner = (Spawner)target;
-        Handles.color = Color.red;
+        Handles.color = Color.green;
 
         Vector3 position = new Vector3(spawner.transform.position.x, spawner.SpawnHeight, spawner.transform.position.z);
         Handles.DrawWireArc(position, Vector3.up, Vector3.forward, 360, spawner.SpawnRadius);
