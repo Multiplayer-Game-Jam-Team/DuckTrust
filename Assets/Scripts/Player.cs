@@ -95,15 +95,6 @@ public class Player : MonoBehaviour {
         
     }
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag.Equals("Platform"))
-        {
-            _isTouchingPlatform = false;
-            GetComponentInChildren<PlayerInfoPanel>().SetActivePlayerInfo(false);
-        }
-    }
-
     private void OnDrawGizmos()
     {
         if (!debug)
