@@ -61,7 +61,10 @@ public class Player : MonoBehaviour {
 
             _rb.MovePosition(_rb.position + WorldDirection.normalized * moveSpeed * Time.fixedDeltaTime);
 
-            transform.rotation = Quaternion.LookRotation(transform.position - DuckPlaneDirection,platform.transform.up);
+            Vector3 upToUse;
+            if (_isTouchingPlatform) upToUse = platform.transform.up;
+            else upToUse = transform.up;
+            transform.rotation = Quaternion.LookRotation(transform.position - DuckPlaneDirection,upToUse);
         }
     }
 
@@ -81,11 +84,12 @@ public class Player : MonoBehaviour {
         }
     }
 
-    //private void OnCollisionStay(Collision collision) {
-    //    if (collision.gameObject.tag.Equals("Platform")) {
-    //        transform.up = collision.transform.up;
-    //    }
-    //}
+    bool _isTouchingPlatform;
+    private void OnCollisionStay(Collision collision) {
+        if (collision.gameObject.tag.Equals("Platform")) {
+            _isTouchingPlatform = true;
+        }
+    }
 
     private void OnDrawGizmos()
     {
