@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameController : Singleton<GameController>
 {
-
     public float  YToDestroy { get => objectsOutDetector.transform.position.y; }
     public GameObject Lily { get => lily; }
+    public bool IsPlayerOut { get; private set; }
 
     [Header("References")]
     [SerializeField]
@@ -67,6 +67,7 @@ public class GameController : Singleton<GameController>
 
     public void PlayerOut()
     {
+        IsPlayerOut = true;
         Debug.Log("player out");
         _playersAlive--;
         if (_playersAlive <= 0)
