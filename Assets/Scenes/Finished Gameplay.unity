@@ -308,7 +308,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 261022422}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.483, y: 0.958, z: 0}
+  m_LocalPosition: {x: -3, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1485912490}
@@ -327,8 +327,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9616263, y: 1.0662603, z: 1.2547655}
-  m_Center: {x: 0.0036126375, y: 0.3827148, z: 0.14918625}
+  m_Size: {x: 0.9616263, y: 1.0322602, z: 1.2547655}
+  m_Center: {x: 0.0036126375, y: 0.18504357, z: 0.14918625}
 --- !u!54 &261022425
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1475,7 +1475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8913da24ce7fa9246a55aecbd77cd2d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.22132814
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8913da24ce7fa9246a55aecbd77cd2d2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1930,7 +1930,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8913da24ce7fa9246a55aecbd77cd2d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.22132814
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8913da24ce7fa9246a55aecbd77cd2d2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2625,7 +2625,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7141572898246983537}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.8874233, y: 1.14, z: -0.5}
+  m_LocalPosition: {x: 3, y: 0.6, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7141572899135988749}
@@ -2702,8 +2702,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9616263, y: 1.0662603, z: 1.2547655}
-  m_Center: {x: 0.0036126375, y: 0.3827148, z: 0.14918625}
+  m_Size: {x: 0.9616263, y: 1.0322602, z: 1.2547655}
+  m_Center: {x: 0.0036126375, y: 0.18504357, z: 0.14918625}
 --- !u!222 &7141572898687782043
 CanvasRenderer:
   m_ObjectHideFlags: 0
