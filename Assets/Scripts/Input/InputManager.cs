@@ -14,6 +14,7 @@ public class InputManager : Singleton<InputManager>
 
     public bool IsStonePlayer1 { get; private set; }
     public bool IsStonePlayer2 { get; private set; }
+    public bool IsPause { get; private set; } = false;
 
     public void MovePressedPlayer1(InputAction.CallbackContext context)
     {
@@ -64,5 +65,10 @@ public class InputManager : Singleton<InputManager>
         {
             IsStonePlayer2 = false;
         }
+    }
+
+    public void Pause(InputAction.CallbackContext context)
+    {
+        if (context.performed) GameController.Instance.PauseButtonPressed();
     }
 }

@@ -14,15 +14,46 @@ public class GameController : Singleton<GameController>
     private GameObject objectsOutDetector;
     [SerializeField]
     private GameObject lily;
-    [SerializeField]
 
     private int _playersAlive = 2;
     private Player[] _players; 
+    private bool _isGamePaused = false;
 
     protected override void Awake()
     {
         base.Awake();
         _players = new Player[2];
+    }
+
+    public void PauseButtonPressed()
+    {
+        Debug.Log("pause pressed");
+        if (_isGamePaused) UnpauseGame();
+        else PauseGame();
+    }
+    private void PauseGame()
+    {
+        if (!_isGamePaused)
+        {
+            Debug.Log("pause game called");
+            _isGamePaused = true;
+            Time.timeScale = 0;
+            UIManager.Instance.ShowPausePanel();
+        }
+    }
+    private void UnpauseGame()
+    {
+        if (_isGamePaused)
+        {
+            Debug.Log("unpause game called");
+            UIManager.Instance.HidePausePanel();
+            Time.timeScale = 1;
+            _isGamePaused = false;
+        }
+    }
+    public void QuitApplication()
+    {
+        Application.Quit();
     }
 
     public void RegisterPlayer(Player player)
