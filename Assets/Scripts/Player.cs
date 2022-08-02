@@ -10,6 +10,7 @@ public class Player : MonoBehaviour {
 
     public PlayerNumber PlayerType { get => playerNumber; }
     public bool IsStone { get; private set; }
+    public bool CanPressStone { get => _canPressStone; }
 
     //------------------------------
     [Header("Player Number")]
