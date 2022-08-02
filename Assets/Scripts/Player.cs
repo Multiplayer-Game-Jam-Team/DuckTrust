@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     }
 
     public PlayerNumber PlayerType { get => playerNumber; }
+    public bool IsStone { get; private set; }
 
     //------------------------------
     [Header("Player Number")]
@@ -97,7 +98,7 @@ public class Player : MonoBehaviour {
                     _rb.mass = _previousDuckMass;
                     duckModel.GetComponent<MeshRenderer>().material = _previousMaterial;
                     gameObject.GetComponent<BoxCollider>().material = _previousPhysicMaterial;
-                    
+                    IsStone = false;
                     StartCoroutine(COCooldownStone(stoneCooldown));
                 }
             }
@@ -119,7 +120,7 @@ public class Player : MonoBehaviour {
                     _rb.mass = _previousDuckMass;
                     duckModel.GetComponent<MeshRenderer>().material = _previousMaterial;
                     gameObject.GetComponent<BoxCollider>().material = _previousPhysicMaterial;
-                    
+                    IsStone=false;
                     StartCoroutine(COCooldownStone(stoneCooldown));
                 }
             }
@@ -167,6 +168,7 @@ public class Player : MonoBehaviour {
 
         Debug.Log("Pressing Stone");
 
+        IsStone = true;
         _canMove = false;
         _rb.mass = stoneMass;
         duckModel.GetComponent<MeshRenderer>().material = stoneMaterial;
@@ -186,6 +188,7 @@ public class Player : MonoBehaviour {
             _rb.mass = _previousDuckMass;
             StartCoroutine(COCooldownStone(stoneCooldown));
             _rb.freezeRotation = false;
+            IsStone = false;
             return;
         }
     }
