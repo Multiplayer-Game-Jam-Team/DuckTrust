@@ -6,12 +6,16 @@ public class SpawnableObject : MonoBehaviour
 {
     //------------------------
     public int ProbabilityWeight { get => probabilityWeight; }
+    public string ObjectName { get => objectName; }
     //------------------------
     [Header("Settings")]
+    [SerializeField]
+    private string objectName;
     [SerializeField]
     private int probabilityWeight;
     [SerializeField]
     private float repulsiveForce;
+
     //------------------------
     private Rigidbody _rb;
 
