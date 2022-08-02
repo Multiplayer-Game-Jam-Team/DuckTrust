@@ -1751,10 +1751,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Duck 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5018290846536544229, guid: f752d0a90a59c444895e51027367fa03, type: 3}
-      propertyPath: cam
-      value: 
-      objectReference: {fileID: 963194228}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f752d0a90a59c444895e51027367fa03, type: 3}
 --- !u!1 &1477763998
