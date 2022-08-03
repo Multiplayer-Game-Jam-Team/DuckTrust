@@ -19,12 +19,26 @@ public class GameController : Singleton<GameController>
     private Player[] _players; 
     private bool _isGamePaused = false;
 
+    //------------------------------------ lifecycle
+
     protected override void Awake()
     {
         base.Awake();
         _players = new Player[2];
     }
 
+    //------------------------------------ registering objects
+
+    public void RegisterPlayer(Player player)
+    {
+
+        if (player.PlayerType == Player.PlayerNumber.Player1)
+            _players[0] = player;
+        else if (player.PlayerType == Player.PlayerNumber.Player2)
+            _players[1] = player;
+    }
+
+    //------------------------------------ pause
     public void PauseButtonPressed()
     {
         Debug.Log("pause pressed");
@@ -45,40 +59,36 @@ public class GameController : Singleton<GameController>
     {
         if (_isGamePaused)
         {
-            Debug.Log("unpause game called");
             UIManager.Instance.HidePausePanel();
             Time.timeScale = 1;
             _isGamePaused = false;
         }
     }
+    //------------------------------------ gameover detection
+    public void PlayerOut()
+    {
+        IsPlayerOut = true;
+        _playersAlive--;
+        if (_playersAlive <= 0)
+            GameOver();
+    }
+
+    private void GameOver()
+    {
+        Time.timeScale = 0;
+        UIManager.Instance.ShowGameOverPanel();
+    }
+
+    //------------------------------------ scenes handling
+
     public void QuitApplication()
     {
         Application.Quit();
     }
 
-    public void RegisterPlayer(Player player)
+    public void RestartGame()
     {
-
-        if(player.PlayerType == Player.PlayerNumber.Player1)
-            _players[0] = player;
-        else if(player.PlayerType == Player.PlayerNumber.Player2)
-            _players[1] = player;
-    }
-
-    public void PlayerOut()
-    {
-        IsPlayerOut = true;
-        Debug.Log("player out");
-        _playersAlive--;
-        if (_playersAlive <= 0)
-        {
-            Debug.Log("Gameover");
-            GameOver();
-        }
-    }
-
-    private void GameOver()
-    {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 }
