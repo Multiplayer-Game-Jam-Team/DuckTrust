@@ -15,3 +15,4 @@ MonoBehaviour:
   spawnableObjects:
   - {fileID: 2799549233887618682, guid: 05e413726d14f1c4ab60b259d4b0f006, type: 3}
   - {fileID: 3038764565439376530, guid: a6305b3d7f746cd4bb48614b5a84bc2f, type: 3}
+  - {fileID: 9213278156403922280, guid: 4506d02493705ea4c8356e91a1205c77, type: 3}
