@@ -14,7 +14,8 @@ public class GameController : Singleton<GameController>
     private GameObject objectsOutDetector;
     [SerializeField]
     private GameObject lily;
-    //[Header("Properties")]
+    [Header("Properties")]
+    private float gameoverDelay = 1f;
 
     private Player[] _players; 
     private bool _isGamePaused = false;
@@ -80,12 +81,13 @@ public class GameController : Singleton<GameController>
         {
             player.IsAlive = false;
             if (!_players[0].IsAlive && !_players[1].IsAlive)
-                GameOver();
+                StartCoroutine(GameOver());
         }
     }
 
-    private void GameOver()
+    private IEnumerator GameOver()
     {
+        yield return new WaitForSeconds(gameoverDelay);
         Time.timeScale = 0;
         UIManager.Instance.HideGamePanel();
         UIManager.Instance.ShowGameOverPanel();
