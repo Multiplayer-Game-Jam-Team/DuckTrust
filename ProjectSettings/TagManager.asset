@@ -10,6 +10,8 @@ TagManager:
   - Duck2Audio
   - WaterAudio
   - BranchAudio
+  - Duck1Sparkle
+  - Duck2Sparkle
   layers:
   - Default
   - TransparentFX
