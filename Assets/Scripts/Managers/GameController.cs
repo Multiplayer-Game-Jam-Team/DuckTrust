@@ -22,6 +22,7 @@ public class GameController : Singleton<GameController>
 
     private Player[] _players; 
     private bool _isGamePaused = false;
+    public string sceneName;
 
     //------------------------------------ lifecycle
 
@@ -115,6 +116,6 @@ public class GameController : Singleton<GameController>
     public void RestartGame()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(sceneName);
     }
 }
