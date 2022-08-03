@@ -8012,25 +8012,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water
       objectReference: {fileID: 0}
-    - target: {fileID: 6148024247877432155, guid: afd4a39576a1ff34cbf35dfe17d1c3c6, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6148024247877432156, guid: afd4a39576a1ff34cbf35dfe17d1c3c6, type: 3}
       propertyPath: m_RootOrder
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6148024247877432156, guid: afd4a39576a1ff34cbf35dfe17d1c3c6, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 37.513203
-      objectReference: {fileID: 0}
-    - target: {fileID: 6148024247877432156, guid: afd4a39576a1ff34cbf35dfe17d1c3c6, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 8.592735
-      objectReference: {fileID: 0}
-    - target: {fileID: 6148024247877432156, guid: afd4a39576a1ff34cbf35dfe17d1c3c6, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 37.513203
       objectReference: {fileID: 0}
     - target: {fileID: 6148024247877432156, guid: afd4a39576a1ff34cbf35dfe17d1c3c6, type: 3}
       propertyPath: m_LocalPosition.x
