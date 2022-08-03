@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour
     public float CurrentTimer { get => _timer; }
 
     [SerializeField]
-    private TextMeshPro textMesh;
+    private TextMeshProUGUI textMesh;
 
     private float _timer;
 
@@ -46,6 +46,6 @@ public class Timer : MonoBehaviour
         timeFormatted = timeFormatted + currentTime[0] + currentTime[1]+":"+currentTime[2]+currentTime[3];
 
         // TODO: Update TextMesh Here 
-        Debug.Log(timeFormatted);
+        textMesh.text = timeFormatted;
     }
 }
