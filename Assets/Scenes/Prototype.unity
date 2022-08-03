@@ -574,7 +574,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7e065fe95d297114e868e07fb92bf06a, type: 2}
+  - {fileID: 2100000, guid: a0a4256e39a66f448a6ba4d242168751, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -934,7 +934,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsOutDetector: {fileID: 1839774121}
   lily: {fileID: 379820989}
-  _playersAlive: 2
 --- !u!4 &660405470
 Transform:
   m_ObjectHideFlags: 0
