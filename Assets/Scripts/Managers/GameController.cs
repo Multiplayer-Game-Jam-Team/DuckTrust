@@ -52,6 +52,7 @@ public class GameController : Singleton<GameController>
             Debug.Log("pause game called");
             _isGamePaused = true;
             Time.timeScale = 0;
+            UIManager.Instance.HideGamePanel();
             UIManager.Instance.ShowPausePanel();
         }
     }
@@ -59,6 +60,7 @@ public class GameController : Singleton<GameController>
     {
         if (_isGamePaused)
         {
+            UIManager.Instance.ShowGamePanel();
             UIManager.Instance.HidePausePanel();
             Time.timeScale = 1;
             _isGamePaused = false;
@@ -76,6 +78,7 @@ public class GameController : Singleton<GameController>
     private void GameOver()
     {
         Time.timeScale = 0;
+        UIManager.Instance.HideGamePanel();
         UIManager.Instance.ShowGameOverPanel();
     }
 

@@ -9,6 +9,8 @@ public class UIManager : Singleton<UIManager>
     private GameObject pausePanel;
     [SerializeField]
     private GameObject gameOverPanel;
+    [SerializeField]
+    private GameObject gamePanel;
 
     public void ShowPausePanel()
     {
@@ -26,6 +28,14 @@ public class UIManager : Singleton<UIManager>
     public void HideGameOverPanel()
     {
         gameOverPanel.SetActive(false);
+    }
+    public void ShowGamePanel()
+    {
+        gamePanel.SetActive(true);
+    }
+    public void HideGamePanel()
+    {
+        gamePanel.SetActive(false);
     }
 
 }

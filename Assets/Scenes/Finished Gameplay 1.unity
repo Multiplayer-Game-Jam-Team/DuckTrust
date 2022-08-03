@@ -8550,7 +8550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1432352050
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9077,6 +9077,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 1549052200}
   gameOverPanel: {fileID: 1432352049}
+  gamePanel: {fileID: 2062633807}
 --- !u!4 &1513038965
 Transform:
   m_ObjectHideFlags: 0
@@ -10368,6 +10369,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 633084728}
     m_Modifications:
+    - target: {fileID: 1978334053821780922, guid: ea3039b00279b5a468d62c5c1e983b65, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2856544546666005696, guid: ea3039b00279b5a468d62c5c1e983b65, type: 3}
       propertyPath: m_Name
       value: LargeRockGrey (5)
@@ -11510,7 +11515,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1839774121}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.94, z: 0}
+  m_LocalPosition: {x: 0, y: -7.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 660405470}
