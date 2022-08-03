@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
     public PlayerNumber PlayerType { get => playerNumber; }
     public bool IsStone { get; private set; }
     public bool CanPressStone { get => _canPressStone; }
+    public bool IsAlive { get; set; } = true;
 
     //------------------------------
     [Header("Player Number")]
@@ -49,7 +50,6 @@ public class Player : MonoBehaviour {
     private Rigidbody _rb;
     private Vector3 _debugRepulsiveForce;
     private bool _isTouchingPlatform;
-    private bool _isAlive = true;
 
     private bool _canMove = true;
     private bool _canPressStone = true;
@@ -82,11 +82,6 @@ public class Player : MonoBehaviour {
 
     private void Update()
     {
-        if(transform.position.y < GameController.Instance.YToDestroy && _isAlive)
-        {
-            _isAlive = false;
-            GameController.Instance.PlayerOut();
-        }
         if (playerNumber == PlayerNumber.Player1)
         {
             if (InputManager.Instance.IsStonePlayer1)

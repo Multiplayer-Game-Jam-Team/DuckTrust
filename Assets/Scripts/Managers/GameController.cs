@@ -7,15 +7,15 @@ public class GameController : Singleton<GameController>
 {
     public float  YToDestroy { get => objectsOutDetector.transform.position.y; }
     public GameObject Lily { get => lily; }
-    public bool IsPlayerOut { get; private set; }
+    //public bool IsPlayerOut { get; private set; }
 
     [Header("References")]
     [SerializeField]
     private GameObject objectsOutDetector;
     [SerializeField]
     private GameObject lily;
+    //[Header("Properties")]
 
-    private int _playersAlive = 2;
     private Player[] _players; 
     private bool _isGamePaused = false;
 
@@ -33,9 +33,15 @@ public class GameController : Singleton<GameController>
     {
 
         if (player.PlayerType == Player.PlayerNumber.Player1)
+        {
             _players[0] = player;
+        }
+            
         else if (player.PlayerType == Player.PlayerNumber.Player2)
+        {
             _players[1] = player;
+        }
+            
     }
 
     //------------------------------------ pause
@@ -67,12 +73,15 @@ public class GameController : Singleton<GameController>
         }
     }
     //------------------------------------ gameover detection
-    public void PlayerOut()
+    public void PlayerOut(Player player)
     {
-        IsPlayerOut = true;
-        _playersAlive--;
-        if (_playersAlive <= 0)
-            GameOver();
+        Debug.Log("game controller: player out");
+        if (player.IsAlive)
+        {
+            player.IsAlive = false;
+            if (!_players[0].IsAlive && !_players[1].IsAlive)
+                GameOver();
+        }
     }
 
     private void GameOver()
