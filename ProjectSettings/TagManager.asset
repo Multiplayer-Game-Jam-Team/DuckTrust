@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Platform
   - AudioManager
+  - Duck1Audio
+  - Duck2Audio
+  - WaterAudio
+  - BranchAudio
   layers:
   - Default
   - TransparentFX
