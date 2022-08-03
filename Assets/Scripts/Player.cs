@@ -83,6 +83,11 @@ public class Player : MonoBehaviour {
 
     private void Update()
     {
+        if(!IsAlive)
+        {
+            _canMove = false;
+            _canPressStone = false;
+        }
         if (playerNumber == PlayerNumber.Player1)
         {
             if (InputManager.Instance.IsStonePlayer1)
