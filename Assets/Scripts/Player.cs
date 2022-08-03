@@ -94,6 +94,7 @@ public class Player : MonoBehaviour {
                 if (_canPressStone && _stoneTimer > 0.0f)
                 {
                     Debug.Log("STONE IS NO LONGER PRESSED");
+                    UIManager.Instance.StartCooldownForPlayer(playerNumber);
                     _stoneTimer = 0;
                     _canPressStone = false;
                     _canMove = true;
@@ -116,6 +117,7 @@ public class Player : MonoBehaviour {
                 if (_canPressStone && _stoneTimer > 0.0f)
                 {
                     Debug.Log("STONE IS NO LONGER PRESSED");
+                    UIManager.Instance.StartCooldownForPlayer(playerNumber);
                     _stoneTimer = 0;
                     _canPressStone = false;
                     _canMove = true;
@@ -182,6 +184,7 @@ public class Player : MonoBehaviour {
         if (_stoneTimer >= stoneTime)
         {
             Debug.Log("Pressing Overtime");
+            UIManager.Instance.StartCooldownForPlayer(playerNumber);
             _stoneTimer = 0;
             _canPressStone = false;
             _canMove = true;

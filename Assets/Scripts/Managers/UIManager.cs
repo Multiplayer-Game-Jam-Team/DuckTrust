@@ -11,6 +11,10 @@ public class UIManager : Singleton<UIManager>
     private GameObject gameOverPanel;
     [SerializeField]
     private GameObject gamePanel;
+    [SerializeField]
+    private StoneCooldownIcon stoneCooldownIconPlayer1;
+    [SerializeField]
+    private StoneCooldownIcon stoneCooldownIconPlayer2;
 
     public void ShowPausePanel()
     {
@@ -38,4 +42,11 @@ public class UIManager : Singleton<UIManager>
         gamePanel.SetActive(false);
     }
 
+    public void StartCooldownForPlayer(Player.PlayerNumber number)
+    {
+        if(number == Player.PlayerNumber.Player1)
+            stoneCooldownIconPlayer1.StartWaiting();
+        else
+            stoneCooldownIconPlayer2.StartWaiting();
+    }
 }

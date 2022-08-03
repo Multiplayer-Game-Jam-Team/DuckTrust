@@ -9196,6 +9196,8 @@ MonoBehaviour:
   pausePanel: {fileID: 1549052200}
   gameOverPanel: {fileID: 1432352049}
   gamePanel: {fileID: 2062633807}
+  stoneCooldownIconPlayer1: {fileID: 919364153}
+  stoneCooldownIconPlayer2: {fileID: 2019579657}
 --- !u!4 &1513038965
 Transform:
   m_ObjectHideFlags: 0
