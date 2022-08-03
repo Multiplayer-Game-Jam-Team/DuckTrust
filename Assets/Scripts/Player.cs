@@ -12,6 +12,7 @@ public class Player : MonoBehaviour {
     public bool IsStone { get; private set; }
     public bool CanPressStone { get => _canPressStone; }
     public bool IsAlive { get; set; } = true;
+    public float StoneCooldown { get=> stoneCooldown; }
 
     //------------------------------
     [Header("Player Number")]
