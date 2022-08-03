@@ -14,6 +14,9 @@ public class GameController : Singleton<GameController>
     private GameObject objectsOutDetector;
     [SerializeField]
     private GameObject lily;
+    [SerializeField]
+    private Timer timer;
+
     [Header("Properties")]
     private float gameoverDelay = 1f;
 
@@ -87,10 +90,19 @@ public class GameController : Singleton<GameController>
 
     private IEnumerator GameOver()
     {
+        float time = timer.CurrentTimer;
+        float bestTime = DataManager.Instance.ReadBestTime();
+
+        if(time > bestTime)
+        {
+            bestTime = time;
+            DataManager.Instance.WriteBestTime(bestTime);
+        }
+        
         yield return new WaitForSeconds(gameoverDelay);
         Time.timeScale = 0;
         UIManager.Instance.HideGamePanel();
-        UIManager.Instance.ShowGameOverPanel();
+        UIManager.Instance.ShowGameOverPanel(timer.GetCurrentFormattedTimer(),timer.GetFormattedTimer(bestTime+1));
     }
 
     //------------------------------------ scenes handling

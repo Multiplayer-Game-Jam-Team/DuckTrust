@@ -25,6 +25,18 @@ public class Timer : MonoBehaviour
         return timeFormatted;
     }
 
+    public string GetFormattedTimer(float timer)
+    {
+        float minutes = Mathf.FloorToInt(timer / 60);
+        float seconds = Mathf.FloorToInt(timer % 60);
+
+        string currentTime = string.Format("{00:00}{1:00}", minutes, seconds);
+        string timeFormatted = "";
+        timeFormatted = timeFormatted + currentTime[0] + currentTime[1] + ":" + currentTime[2] + currentTime[3];
+
+        return timeFormatted;
+    }
+
     private void Update()
     {
         _timer += Time.deltaTime;

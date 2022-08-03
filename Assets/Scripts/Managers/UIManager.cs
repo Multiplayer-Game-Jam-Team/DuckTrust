@@ -25,9 +25,10 @@ public class UIManager : Singleton<UIManager>
         pausePanel.SetActive(false);
     }
 
-    public void ShowGameOverPanel()
+    public void ShowGameOverPanel(string time, string bestTime)
     {
         gameOverPanel.SetActive(true);
+        gameOverPanel.GetComponent<GameOverPanel>().SetTimeAndBestTime(time, bestTime);
     }
     public void HideGameOverPanel()
     {
