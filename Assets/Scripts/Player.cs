@@ -58,6 +58,11 @@ public class Player : MonoBehaviour {
     private Material _previousMaterial;
     private PhysicMaterial _previousPhysicMaterial;
 
+    public void StopMove()
+    {
+        _canMove = false;
+    }
+
     private void Awake() 
     {
         _rb = GetComponent<Rigidbody>();
@@ -211,8 +216,11 @@ public class Player : MonoBehaviour {
 
     private void OnCollisionStay(Collision collision) 
     {
-        if (collision.gameObject.tag.Equals("Platform")) 
+        if (collision.gameObject.tag.Equals("Platform"))
+        {
             _isTouchingPlatform = true;
+        }
+            
         
     }
 
