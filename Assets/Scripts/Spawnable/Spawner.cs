@@ -34,10 +34,6 @@ public class Spawner : Singleton<Spawner>
 
         Instantiate(objToSpawn, spawnPosition, Quaternion.identity);
     }
-    public void StopSpawn()
-    {
-        _stop = true;
-    }
 
     public void SetActiveSpawn(bool active)
     {
