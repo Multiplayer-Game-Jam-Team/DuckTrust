@@ -158,8 +158,8 @@ public class Player : MonoBehaviour {
         lastMoveDirection = moveDirection;
         Vector2 inputDirection = moveDirection;
         Vector3 WorldDirection = new Vector3(inputDirection.x, 0, inputDirection.y);
-        Vector3 DuckPlaneDirection = Vector3.ProjectOnPlane(WorldDirection, transform.up);
-        DuckPlaneDirection += transform.position;
+        Vector3 LillyPlaneDirection = Vector3.ProjectOnPlane(WorldDirection, _platform.transform.up);
+        LillyPlaneDirection += transform.position;
 
         if (_canMove && isMoving)
             _rb.MovePosition(_rb.position + WorldDirection.normalized * moveSpeed * Time.fixedDeltaTime);
@@ -168,7 +168,7 @@ public class Player : MonoBehaviour {
         if (_isTouchingPlatform) upToUse = _platform.transform.up;
         else upToUse = transform.up;
 
-        Quaternion toRot = Quaternion.LookRotation(transform.position - DuckPlaneDirection,upToUse);
+        Quaternion toRot = Quaternion.LookRotation(transform.position - LillyPlaneDirection,upToUse);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, toRot, rotationSpeed * Time.fixedDeltaTime);
     }
 
@@ -187,8 +187,8 @@ public class Player : MonoBehaviour {
         gameObject.GetComponent<BoxCollider>().material = stonePhysicMaterial;
 
         //transform.up = _platform.transform.up;
-        Move(true, lastMoveDirection);
-        _rb.velocity = Vector3.zero;
+        Move(false, lastMoveDirection);
+        _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
 
         _stoneTimer += Time.deltaTime;
         if (_stoneTimer >= stoneTime)
