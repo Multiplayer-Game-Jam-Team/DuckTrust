@@ -18,6 +18,10 @@ public class Spawner : Singleton<Spawner>
     [SerializeField]
     private float maxSpawnRate = 5.0f;
     [SerializeField]
+    private float maxRange = 1.0f;
+    [SerializeField]
+    private float decrementStep = 0.1f;
+    [SerializeField]
     private float spawnRadius = 7.5f;
     [SerializeField]
     private float spawnHeight = 10.0f;
@@ -58,6 +62,11 @@ public class Spawner : Singleton<Spawner>
             float spawnRate = Random.Range(minSpawnRate, maxSpawnRate);
             yield return new WaitForSeconds(spawnRate);
             Spawn();
+           
+            if((maxSpawnRate-decrementStep) - minSpawnRate > maxRange)
+            {
+                maxSpawnRate -= decrementStep;
+            }
         }
     }
 
