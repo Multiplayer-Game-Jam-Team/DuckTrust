@@ -1532,7 +1532,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: " move: WASD\n stone: R"
+  m_text: " move: WASD\n stone: E"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9a1fc7194e8eb17418f44c2f97ead173, type: 2}
   m_sharedMaterial: {fileID: 3446189289184273090, guid: 9a1fc7194e8eb17418f44c2f97ead173, type: 2}
@@ -10776,7 +10776,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: " move: IJKL  \n stone: P  "
+  m_text: " move: IJKL  \n stone: O"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9a1fc7194e8eb17418f44c2f97ead173, type: 2}
   m_sharedMaterial: {fileID: 3446189289184273090, guid: 9a1fc7194e8eb17418f44c2f97ead173, type: 2}
