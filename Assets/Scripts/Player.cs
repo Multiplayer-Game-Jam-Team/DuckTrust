@@ -14,6 +14,8 @@ public class Player : MonoBehaviour {
     public bool IsAlive { get; set; } = true;
     public float StoneCooldown { get => stoneCooldown; }
 
+    public bool IsTouchingPlatform { get => _isTouchingPlatform; }
+
     //------------------------------
     [Header("Player Number")]
     [SerializeField]
@@ -227,8 +229,10 @@ public class Player : MonoBehaviour {
         {
             _isTouchingPlatform = true;
         }
-            
-        
+        else
+        {
+            _isTouchingPlatform = false;
+        }
     }
 
     private void OnDrawGizmos()
