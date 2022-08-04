@@ -186,6 +186,7 @@ public class Player : MonoBehaviour {
 
         Move(false, lastMoveDirection);
         _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
+        UIManager.Instance.FillCooldownForPlayer(playerNumber);
 
         _stoneTimer += Time.deltaTime;
         if (_stoneTimer >= stoneTime)

@@ -13,6 +13,11 @@ public class StoneCooldownIcon : MonoBehaviour
     private float _totalSpace = 0;
     private float _speed = 1.0f;
 
+    public void Fill()
+    {
+        filler.transform.localPosition = new Vector3(filler.transform.localPosition.x, 150.0f, 0.0f);
+    }
+
     public void StartWaiting()
     {
         filler.transform.localPosition = new Vector3(filler.transform.localPosition.x, 150.0f, 0.0f);

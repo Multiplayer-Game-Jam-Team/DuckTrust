@@ -43,6 +43,14 @@ public class UIManager : Singleton<UIManager>
         gamePanel.SetActive(false);
     }
 
+    public void FillCooldownForPlayer(Player.PlayerNumber number)
+    {
+        if (number == Player.PlayerNumber.Player1)
+            stoneCooldownIconPlayer1.Fill();
+        else
+            stoneCooldownIconPlayer2.Fill();
+    }
+
     public void StartCooldownForPlayer(Player.PlayerNumber number)
     {
         if(number == Player.PlayerNumber.Player1)
