@@ -146,8 +146,6 @@ public class Player : MonoBehaviour {
         {
             Move(InputManager.Instance.IsMovingPlayer2, InputManager.Instance.MoveDirectionPlayer2);
         }
-
-
     }
 
     private void Move(bool isMoving, Vector2 moveDirection)
@@ -186,7 +184,6 @@ public class Player : MonoBehaviour {
         duckModel.GetComponent<MeshRenderer>().material = stoneMaterial;
         gameObject.GetComponent<BoxCollider>().material = stonePhysicMaterial;
 
-        //transform.up = _platform.transform.up;
         Move(false, lastMoveDirection);
         _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
 
