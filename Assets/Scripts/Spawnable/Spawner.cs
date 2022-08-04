@@ -41,7 +41,7 @@ public class Spawner : Singleton<Spawner>
 
     public void SetActiveSpawn(bool active)
     {
-        _stop = active;
+        _stop = !active;
     }
 
     protected  override void Awake()
