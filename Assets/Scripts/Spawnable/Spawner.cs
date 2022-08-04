@@ -41,6 +41,7 @@ public class Spawner : Singleton<Spawner>
 
     public void SetActiveSpawn(bool active)
     {
+        StopAllCoroutines();
         _stop = !active;
     }
 
