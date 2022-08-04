@@ -12,7 +12,7 @@ public class Player : MonoBehaviour {
     public bool IsStone { get; private set; }
     public bool CanPressStone { get => _canPressStone; }
     public bool IsAlive { get; set; } = true;
-    public float StoneCooldown { get => stoneCooldown; }
+    public float StoneCooldown { get=> stoneCooldown; }
 
     //------------------------------
     [Header("Player Number")]
@@ -64,11 +64,11 @@ public class Player : MonoBehaviour {
         _canMove = false;
     }
 
-    private void Awake()
+    private void Awake() 
     {
         _rb = GetComponent<Rigidbody>();
     }
-
+     
     private void Start()
     {
         _platform = GameController.Instance.Lily;
@@ -76,14 +76,14 @@ public class Player : MonoBehaviour {
         _previousMaterial = duckModel.GetComponent<MeshRenderer>().material;
         _previousPhysicMaterial = gameObject.GetComponent<BoxCollider>().material;
 
-        Debug.Log("my number is: " + playerNumber.ToString());
+        Debug.Log("my number is: "+playerNumber.ToString());
 
         GameController.Instance.RegisterPlayer(this);
     }
 
     private void Update()
     {
-        if (!IsAlive)
+        if(!IsAlive)
         {
             _canMove = false;
             _canPressStone = false;
@@ -129,14 +129,14 @@ public class Player : MonoBehaviour {
                     _rb.mass = _previousDuckMass;
                     duckModel.GetComponent<MeshRenderer>().material = _previousMaterial;
                     gameObject.GetComponent<BoxCollider>().material = _previousPhysicMaterial;
-                    IsStone = false;
+                    IsStone=false;
                     StartCoroutine(COCooldownStone(stoneCooldown));
                 }
             }
         }
     }
 
-    private void FixedUpdate()
+    private void FixedUpdate() 
     {
         if (playerNumber == PlayerNumber.Player1)
         {
@@ -147,22 +147,20 @@ public class Player : MonoBehaviour {
             Move(InputManager.Instance.IsMovingPlayer2, InputManager.Instance.MoveDirectionPlayer2);
         }
 
-
+        
     }
 
-    private void Move(bool isMoving, Vector2 moveDirection)
+    private void Move(bool isMoving, Vector2 moveDirection) 
     {
         if (!isMoving || !_canMove)
-            moveDirection = lastMoveDirection;
+            return;
 
-        lastMoveDirection = moveDirection;
         Vector2 inputDirection = moveDirection;
-        Vector3 WorldDirection = new Vector3(inputDirection.x, 0, inputDirection.y);
+        Vector3 WorldDirection = new Vector3(inputDirection.x,0, inputDirection.y);
         Vector3 DuckPlaneDirection = Vector3.ProjectOnPlane(WorldDirection, transform.up);
         DuckPlaneDirection += transform.position;
 
-        if (_canMove && isMoving)
-            _rb.MovePosition(_rb.position + WorldDirection.normalized * moveSpeed * Time.fixedDeltaTime);
+        _rb.MovePosition(_rb.position + WorldDirection.normalized * moveSpeed * Time.fixedDeltaTime);
 
         Vector3 upToUse;
         if (_isTouchingPlatform) upToUse = _platform.transform.up;
@@ -172,7 +170,6 @@ public class Player : MonoBehaviour {
         transform.rotation = Quaternion.RotateTowards(transform.rotation, toRot, rotationSpeed * Time.fixedDeltaTime);
     }
 
-    Vector2 lastMoveDirection;
     private void Stone(bool isPressingStone)
     {
         if (!isPressingStone || !_canPressStone)
@@ -186,9 +183,7 @@ public class Player : MonoBehaviour {
         duckModel.GetComponent<MeshRenderer>().material = stoneMaterial;
         gameObject.GetComponent<BoxCollider>().material = stonePhysicMaterial;
 
-        //transform.up = _platform.transform.up;
-        Move(true, lastMoveDirection);
-        _rb.velocity = Vector3.zero;
+        transform.up = _platform.transform.up;
 
         _stoneTimer += Time.deltaTime;
         if (_stoneTimer >= stoneTime)
