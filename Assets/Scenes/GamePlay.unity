@@ -9720,9 +9720,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnableSet: {fileID: 11400000, guid: 2972261ffd54d3b4d9ea168ec42b0a12, type: 2}
-  minSpawnTime: 2
-  maxSpawnTime: 5
-  maxLimit: 3
+  minSpawnTime: 0.8
+  maxSpawnTime: 1.8
+  maxLimit: 1.8
   decrementStep: 0.1
   spawnRadius: 7
   spawnHeight: 10
