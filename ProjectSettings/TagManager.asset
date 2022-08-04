@@ -12,6 +12,8 @@ TagManager:
   - BranchAudio
   - Duck1Sparkle
   - Duck2Sparkle
+  - Duck1Movement
+  - Duck2Movement
   layers:
   - Default
   - TransparentFX
