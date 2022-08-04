@@ -101,7 +101,7 @@ public class GameController : Singleton<GameController>
         }
         
         yield return new WaitForSeconds(gameoverDelay);
-        Time.timeScale = 0;
+        Spawner.Instance.StopSpawn();
         UIManager.Instance.HideGamePanel();
         UIManager.Instance.ShowGameOverPanel(timer.GetCurrentFormattedTimer(),timer.GetFormattedTimer(bestTime+1));
     }

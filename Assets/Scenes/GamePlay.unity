@@ -8833,7 +8833,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.4030762, y: 1.201477}
+  m_AnchoredPosition: {x: -2.4030762, y: 1.201416}
   m_SizeDelta: {x: 48.0609, y: 55.2699}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1432352051
@@ -8888,6 +8888,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeText: {fileID: 1732743092}
   bestTimeText: {fileID: 1655445889}
+  rainbowSpeed: 0.6
+  rainbowAlpha: 1
 --- !u!1001 &1437168449
 PrefabInstance:
   m_ObjectHideFlags: 0
