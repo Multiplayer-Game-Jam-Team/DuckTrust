@@ -2,12 +2,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class SceneLoader : MonoBehaviour
+public class SceneLoader : Singleton<SceneLoader>
 {
-    public string scenename;
-    public void LoadScene()
+    public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene(scenename);
+        SceneManager.LoadScene(sceneName);
     }
 
     public void QuitGame()

@@ -753,36 +753,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5331269712633963591, guid: 367b60244712c5e4aa67e9a338e81c6d, type: 3}
   m_PrefabInstance: {fileID: 185936500}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &197578762
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 197578763}
-  m_Layer: 0
-  m_Name: ==== SPAWNER ====
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &197578763
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 197578762}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &221827188
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5352,13 +5322,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1079746276}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
         m_MethodName: LoadScene
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: GamePlay
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!224 &1031780117 stripped
@@ -5538,7 +5508,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce4f6a1aedd05246b10e35663b1cc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenename: GamePlay
 --- !u!4 &1079746277
 Transform:
   m_ObjectHideFlags: 0
@@ -7359,36 +7328,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afd4a39576a1ff34cbf35dfe17d1c3c6, type: 3}
---- !u!1 &1477763998
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1477763999}
-  m_Layer: 0
-  m_Name: ==== PLAYERS ====
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1477763999
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1477763998}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1486141929 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5659447395308557036, guid: 35b3881e95fa6064cb098d871bdfb881, type: 3}
@@ -9776,7 +9715,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1079746276}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
