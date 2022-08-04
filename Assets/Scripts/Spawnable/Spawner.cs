@@ -14,11 +14,11 @@ public class Spawner : Singleton<Spawner>
 
     [Header("Spawn Settings")]
     [SerializeField]
-    private float minSpawnRate = 2.0f;
+    private float minSpawnTime = 2.0f;
     [SerializeField]
-    private float maxSpawnRate = 5.0f;
+    private float maxSpawnTime = 5.0f;
     [SerializeField]
-    private float maxRange = 1.0f;
+    private float maxLimit = 1.0f;
     [SerializeField]
     private float decrementStep = 0.1f;
     [SerializeField]
@@ -41,11 +41,10 @@ public class Spawner : Singleton<Spawner>
 
     public void SetActiveSpawn(bool active)
     {
-        StopAllCoroutines();
         _stop = !active;
     }
 
-    protected  override void Awake()
+    protected override void Awake()
     {
         base.Awake();
         _stop = false;
@@ -60,14 +59,15 @@ public class Spawner : Singleton<Spawner>
     {
         while (!_stop)
         {
-            float spawnRate = Random.Range(minSpawnRate, maxSpawnRate);
+            float spawnRate = Random.Range(minSpawnTime, maxSpawnTime);
             yield return new WaitForSeconds(spawnRate);
             Spawn();
-           
-            if((maxSpawnRate-decrementStep) - minSpawnRate > maxRange)
+
+            if ((maxSpawnTime - decrementStep) > maxLimit)
             {
-                maxSpawnRate -= decrementStep;
+                maxSpawnTime -= decrementStep;
             }
+            else maxSpawnTime = maxLimit;
         }
     }
 
