@@ -1400,6 +1400,7 @@ MonoBehaviour:
   stoneMaterial: {fileID: 2100000, guid: 0c0b2123789a317409bd6aa39008f5c2, type: 2}
   stonePhysicMaterial: {fileID: 13400000, guid: 226f547ed9515514aa57dc37bb2251b6, type: 2}
   duckModel: {fileID: 2146119988}
+  particles: {fileID: 0}
   debug: 1
 --- !u!1001 &276445438
 PrefabInstance:
@@ -14227,6 +14228,7 @@ MonoBehaviour:
   stoneMaterial: {fileID: 2100000, guid: 0c0b2123789a317409bd6aa39008f5c2, type: 2}
   stonePhysicMaterial: {fileID: 13400000, guid: 226f547ed9515514aa57dc37bb2251b6, type: 2}
   duckModel: {fileID: 546195028}
+  particles: {fileID: 0}
   debug: 1
 --- !u!54 &7141572898246983550
 Rigidbody:

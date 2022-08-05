@@ -44,6 +44,8 @@ public class Player : MonoBehaviour {
     [Header("References")]
     [SerializeField]
     private GameObject duckModel;
+    [SerializeField]
+    private ParticleSystem particles;
 
     [Header("Debug")]
     [SerializeField]
