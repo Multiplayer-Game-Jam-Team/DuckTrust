@@ -60,8 +60,11 @@ public class Player : MonoBehaviour {
     private bool _canPressStone = true;
     private float _stoneTimer = 0.0f;
     private float _previousDuckMass = 0.0f;
-    private Material _previousMaterial;
-    private PhysicMaterial _previousPhysicMaterial;
+    private Material _yellowMaterial;
+    private PhysicMaterial _yellowPhysicsMaterial;
+
+    private MeshRenderer _meshRenderer;
+    private BoxCollider _boxCollider;
 
     public void StopMove()
     {
@@ -71,15 +74,17 @@ public class Player : MonoBehaviour {
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+        _meshRenderer = duckModel.GetComponent<MeshRenderer>();
+        _boxCollider = gameObject.GetComponent<BoxCollider>();
     }
 
     private void Start()
     {
         _platform = GameController.Instance.Lily;
         _previousDuckMass = _rb.mass;
-        _previousMaterial = duckModel.GetComponent<MeshRenderer>().material;
-        _previousPhysicMaterial = gameObject.GetComponent<BoxCollider>().material;
-
+        _yellowMaterial = _meshRenderer.material;
+        _yellowPhysicsMaterial =_boxCollider.material;
+        
         Debug.Log("my number is: " + playerNumber.ToString());
 
         GameController.Instance.RegisterPlayer(this);
@@ -112,8 +117,8 @@ public class Player : MonoBehaviour {
                         _canPressStone = false;
                         _canMove = true;
                         _rb.mass = _previousDuckMass;
-                        duckModel.GetComponent<MeshRenderer>().material = _previousMaterial;
-                        gameObject.GetComponent<BoxCollider>().material = _previousPhysicMaterial;
+                        _meshRenderer.material = _yellowMaterial;
+                        _boxCollider.material = _yellowPhysicsMaterial;
                         IsStone = false;
                         StartCoroutine(COCooldownStone(stoneCooldown));
                     }
@@ -138,8 +143,8 @@ public class Player : MonoBehaviour {
                         _canPressStone = false;
                         _canMove = true;
                         _rb.mass = _previousDuckMass;
-                        duckModel.GetComponent<MeshRenderer>().material = _previousMaterial;
-                        gameObject.GetComponent<BoxCollider>().material = _previousPhysicMaterial;
+                        _meshRenderer.material = _yellowMaterial;
+                        _boxCollider.material = _yellowPhysicsMaterial;
                         IsStone = false;
                         StartCoroutine(COCooldownStone(stoneCooldown));
                     }
@@ -195,8 +200,8 @@ public class Player : MonoBehaviour {
             IsStone = true;
             _canMove = false;
             _rb.mass = stoneMass;
-            duckModel.GetComponent<MeshRenderer>().material = stoneMaterial;
-            gameObject.GetComponent<BoxCollider>().material = stonePhysicMaterial;
+            _meshRenderer.material = stoneMaterial;
+            _boxCollider.material = stonePhysicMaterial;
         }
         
         Move(false, lastMoveDirection);
@@ -212,8 +217,8 @@ public class Player : MonoBehaviour {
             _stoneTimer = 0;
             _canPressStone = false;
             _canMove = true;
-            duckModel.GetComponent<MeshRenderer>().material = _previousMaterial;
-            gameObject.GetComponent<BoxCollider>().material = _previousPhysicMaterial;
+            _meshRenderer.material = _yellowMaterial;
+            _boxCollider.material = _yellowPhysicsMaterial;
             _rb.mass = _previousDuckMass;
             StartCoroutine(COCooldownStone(stoneCooldown));
             _rb.freezeRotation = false;
