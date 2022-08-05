@@ -85,6 +85,7 @@ public class Player : MonoBehaviour {
         GameController.Instance.RegisterPlayer(this);
     }
 
+    //private bool 
     private void Update()
     {
         if (!IsAlive)
@@ -104,14 +105,18 @@ public class Player : MonoBehaviour {
                 {
                     Debug.Log("STONE IS NO LONGER PRESSED");
                     UIManager.Instance.StartCooldownForPlayer(playerNumber);
-                    _stoneTimer = 0;
-                    _canPressStone = false;
-                    _canMove = true;
-                    _rb.mass = _previousDuckMass;
-                    duckModel.GetComponent<MeshRenderer>().material = _previousMaterial;
-                    gameObject.GetComponent<BoxCollider>().material = _previousPhysicMaterial;
-                    IsStone = false;
-                    StartCoroutine(COCooldownStone(stoneCooldown));
+
+                    if (IsStone)
+                    {
+                        _stoneTimer = 0;
+                        _canPressStone = false;
+                        _canMove = true;
+                        _rb.mass = _previousDuckMass;
+                        duckModel.GetComponent<MeshRenderer>().material = _previousMaterial;
+                        gameObject.GetComponent<BoxCollider>().material = _previousPhysicMaterial;
+                        IsStone = false;
+                        StartCoroutine(COCooldownStone(stoneCooldown));
+                    }
                 }
             }
         }
@@ -127,14 +132,17 @@ public class Player : MonoBehaviour {
                 {
                     Debug.Log("STONE IS NO LONGER PRESSED");
                     UIManager.Instance.StartCooldownForPlayer(playerNumber);
-                    _stoneTimer = 0;
-                    _canPressStone = false;
-                    _canMove = true;
-                    _rb.mass = _previousDuckMass;
-                    duckModel.GetComponent<MeshRenderer>().material = _previousMaterial;
-                    gameObject.GetComponent<BoxCollider>().material = _previousPhysicMaterial;
-                    IsStone = false;
-                    StartCoroutine(COCooldownStone(stoneCooldown));
+                    if (IsStone)
+                    {
+                        _stoneTimer = 0;
+                        _canPressStone = false;
+                        _canMove = true;
+                        _rb.mass = _previousDuckMass;
+                        duckModel.GetComponent<MeshRenderer>().material = _previousMaterial;
+                        gameObject.GetComponent<BoxCollider>().material = _previousPhysicMaterial;
+                        IsStone = false;
+                        StartCoroutine(COCooldownStone(stoneCooldown));
+                    }
                 }
             }
         }
@@ -182,17 +190,21 @@ public class Player : MonoBehaviour {
 
         Debug.Log("Pressing Stone");
 
-        IsStone = true;
-        _canMove = false;
-        _rb.mass = stoneMass;
-        duckModel.GetComponent<MeshRenderer>().material = stoneMaterial;
-        gameObject.GetComponent<BoxCollider>().material = stonePhysicMaterial;
-
+        if (!IsStone)
+        {
+            IsStone = true;
+            _canMove = false;
+            _rb.mass = stoneMass;
+            duckModel.GetComponent<MeshRenderer>().material = stoneMaterial;
+            gameObject.GetComponent<BoxCollider>().material = stonePhysicMaterial;
+        }
+        
         Move(false, lastMoveDirection);
         _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
         UIManager.Instance.FillCooldownForPlayer(playerNumber);
 
         _stoneTimer += Time.deltaTime;
+
         if (_stoneTimer >= stoneTime)
         {
             Debug.Log("Pressing Overtime");
