@@ -90,6 +90,7 @@ public class Player : MonoBehaviour {
         GameController.Instance.RegisterPlayer(this);
     }
 
+    private bool stoneJustEnded = false;
     //private bool 
     private void Update()
     {
@@ -100,6 +101,7 @@ public class Player : MonoBehaviour {
         }
         if (playerNumber == PlayerNumber.Player1)
         {
+            Debug.Log("is stone: " + IsStone);
             if (InputManager.Instance.IsStonePlayer1)
             {
                 Stone(true);
@@ -111,8 +113,9 @@ public class Player : MonoBehaviour {
                     Debug.Log("STONE IS NO LONGER PRESSED");
                     UIManager.Instance.StartCooldownForPlayer(playerNumber);
 
-                    if (IsStone)
+                    if (stoneJustEnded || IsStone)
                     {
+                        if(particles)particles.Play();
                         _stoneTimer = 0;
                         _canPressStone = false;
                         _canMove = true;
@@ -120,6 +123,7 @@ public class Player : MonoBehaviour {
                         _meshRenderer.material = _yellowMaterial;
                         _boxCollider.material = _yellowPhysicsMaterial;
                         IsStone = false;
+                        stoneJustEnded = false;
                         StartCoroutine(COCooldownStone(stoneCooldown));
                     }
                 }
@@ -137,8 +141,9 @@ public class Player : MonoBehaviour {
                 {
                     Debug.Log("STONE IS NO LONGER PRESSED");
                     UIManager.Instance.StartCooldownForPlayer(playerNumber);
-                    if (IsStone)
+                    if (stoneJustEnded || IsStone)
                     {
+                        if (particles) particles.Play();
                         _stoneTimer = 0;
                         _canPressStone = false;
                         _canMove = true;
@@ -146,6 +151,7 @@ public class Player : MonoBehaviour {
                         _meshRenderer.material = _yellowMaterial;
                         _boxCollider.material = _yellowPhysicsMaterial;
                         IsStone = false;
+                        stoneJustEnded = false;
                         StartCoroutine(COCooldownStone(stoneCooldown));
                     }
                 }
@@ -193,10 +199,11 @@ public class Player : MonoBehaviour {
         if (!isPressingStone || !_canPressStone)
             return;
 
-        Debug.Log("Pressing Stone");
+        //Debug.Log("Pressing Stone");
 
         if (!IsStone)
         {
+            if (particles) particles.Play();
             IsStone = true;
             _canMove = false;
             _rb.mass = stoneMass;
@@ -212,7 +219,7 @@ public class Player : MonoBehaviour {
 
         if (_stoneTimer >= stoneTime)
         {
-            Debug.Log("Pressing Overtime");
+            //Debug.Log("Pressing Overtime");
             UIManager.Instance.StartCooldownForPlayer(playerNumber);
             _stoneTimer = 0;
             _canPressStone = false;
@@ -221,8 +228,9 @@ public class Player : MonoBehaviour {
             _boxCollider.material = _yellowPhysicsMaterial;
             _rb.mass = _previousDuckMass;
             StartCoroutine(COCooldownStone(stoneCooldown));
-            _rb.freezeRotation = false;
             IsStone = false;
+            stoneJustEnded = true;
+            _rb.freezeRotation = false;
             return;
         }
     }
@@ -232,8 +240,8 @@ public class Player : MonoBehaviour {
         {
             Vector3 direction = (transform.position - collision.gameObject.transform.position).normalized;
 
-            if (debug)
-                Debug.Log("Repulsive Force direction: " + direction+" for "+this.gameObject.name);
+            //if (debug)
+            //    Debug.Log("Repulsive Force direction: " + direction+" for "+this.gameObject.name);
 
             Vector3 force = direction * repulsiveForce;
 
