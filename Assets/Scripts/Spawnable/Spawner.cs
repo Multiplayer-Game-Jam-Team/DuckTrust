@@ -42,6 +42,8 @@ public class Spawner : Singleton<Spawner>
     public void SetActiveSpawn(bool active)
     {
         _stop = !active;
+        if (_stop)
+            StopAllCoroutines();
     }
 
     protected override void Awake()
