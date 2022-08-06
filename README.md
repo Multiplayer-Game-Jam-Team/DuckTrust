@@ -57,13 +57,13 @@ Try to beat your high score with your buddy!
 
 **Developers**:
 * Cristian: https://github.com/xPoke-glitch / https://pokedev.itch.io/
-* Nicolò: https://github.com/nico-bertoli / https://itch.io/profile/nicobertoli
+* Nicolò: https://github.com/nico-bertoli / https://nicobertoli.itch.io/
 
 **Music Composer**:
 * Hannah Liu: https://www.hannahliu-composer.com / https://itch.io/profile/hannahliu-composer
 
 **Sound Designer**:
-* Mark Berg: https://www.markbergsound.com/ / https://itch.io/profile/boy-ish
+* Mark Berg: https://www.markbergsound.com/ / https://boy-ish.itch.io/
 
 **Game Designer**:
 * Unbirthday: https://unbirthday.itch.io/
