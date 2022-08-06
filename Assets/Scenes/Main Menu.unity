@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.38148043, g: 0.46817917, b: 0.6131963, a: 1}
+  m_IndirectSpecularColor: {r: 0.38149974, g: 0.46815968, b: 0.6131704, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3398,6 +3398,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5659447395308557036, guid: 35b3881e95fa6064cb098d871bdfb881, type: 3}
   m_PrefabInstance: {fileID: 646063248}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &660551952 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 876501098558680509, guid: 896bc83eb14a0d9459223390fe767ccd, type: 3}
+  m_PrefabInstance: {fileID: 1031780107}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &660551956
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660551952}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 3c7461113f706204ea47338e96d0ce11, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 3c7461113f706204ea47338e96d0ce11, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!4 &662439581 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5331269712633963591, guid: 367b60244712c5e4aa67e9a338e81c6d, type: 3}
@@ -5314,6 +5335,18 @@ PrefabInstance:
     - target: {fileID: 876501098558680508, guid: 896bc83eb14a0d9459223390fe767ccd, type: 3}
       propertyPath: m_SizeDelta.y
       value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 876501098558680508, guid: 896bc83eb14a0d9459223390fe767ccd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.8627448
+      objectReference: {fileID: 0}
+    - target: {fileID: 876501098558680508, guid: 896bc83eb14a0d9459223390fe767ccd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.8627448
+      objectReference: {fileID: 0}
+    - target: {fileID: 876501098558680508, guid: 896bc83eb14a0d9459223390fe767ccd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.8627448
       objectReference: {fileID: 0}
     - target: {fileID: 876501098558680508, guid: 896bc83eb14a0d9459223390fe767ccd, type: 3}
       propertyPath: m_AnchoredPosition.x
