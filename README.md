@@ -3,6 +3,8 @@
 
 **Duck Trust** is a game for the Multiplayer Game Jam.
 
+Game Trailer: https://www.youtube.com/watch?v=TcFqLKgKv4o
+
 Link to the Itch.io page: https://acemoisan.itch.io/duck-trust
 
 <img src="https://github.com/Multiplayer-Game-Jam-Team/DuckTrust/blob/main/Screenshots/main-menu.png" width="750">
