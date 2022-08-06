@@ -27,11 +27,11 @@ There you can choose if you want to play it directly on browser or download the 
 
 The commands are the following:
 
-Move with **WASD** and become stone with **E**
+Move with **WASD** and become stone with **E** (hold it)
 
 <img src="https://github.com/Multiplayer-Game-Jam-Team/DuckTrust/blob/main/Screenshots/controlsP1.png" width="750">
 
-Move with **IJKL** and become stone with **O**
+Move with **IJKL** and become stone with **O** (hold it)
 
 <img src="https://github.com/Multiplayer-Game-Jam-Team/DuckTrust/blob/main/Screenshots/controlsP2.png" width="750">
 
