@@ -69,4 +69,4 @@ Try to beat your high score with your buddy!
 * Unbirthday: https://unbirthday.itch.io/
 
 **Artist**:
-* Aiden: https://acemoisan.itch.io/
+* Aidan: https://acemoisan.itch.io/
