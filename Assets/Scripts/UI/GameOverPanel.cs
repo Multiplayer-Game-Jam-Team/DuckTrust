@@ -29,7 +29,7 @@ public class GameOverPanel : MonoBehaviour
 
     public void SetTimeAndBestTime(string time, string bestTime)
     {
-        if(time.Equals( bestTime)){
+        if(time.Equals(bestTime)){
             timeText.text = "New best time !";
             bestTimeText.text = bestTime;
             _newBest = true;
