@@ -1,7 +1,9 @@
 # Duck Trust
 [![Made with Unity](https://img.shields.io/badge/Made%20with-Unity-57b9d3.svg?style=flat&logo=unity)](https://www.unity.com)
 
-**Duck Trust** is a game for the Multiplayer Game Jam.
+**Duck Trust** is a game for the Multiplayer Game Jam. 
+
+**GAME JAM RESULT**: Top 10 (**6th**) -> **#3rd** Creativity - **#8th** Audio / Music - **#12th** Environment / Gameplay
 
 Game Trailer: https://www.youtube.com/watch?v=TcFqLKgKv4o
 
